@@ -3,7 +3,7 @@ return array(
     'db' => array(
         'driver'         => 'Pdo',
         'username'       => 'root',
-        'dsn'            => 'mysql:dbname=erp;host=localhost',
+        'dsn'            => 'mysql:dbname=zend_erp;host=localhost',
         'driver_options' => array(
             PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES \'UTF8\''
         ),
@@ -22,7 +22,7 @@ return array(
                     'port'     => '3306',
                     'user'     => 'root',
                     'password' => '',
-                    'dbname'   => 'erp',
+                    'dbname'   => 'zend_erp',
                 )
             )
         )
