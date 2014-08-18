@@ -1,5 +1,6 @@
  <?php
- $form->setAttribute('action', $this->url('user_index', array('action' => 'add')));
+ $form->setAttribute('action', $this->url('user_add', array('action' => 'add')));
+ $form->setAttribute('class', 'form-horizontal');
  $form->prepare();
  ?>
 <div class="tab-pane active" id="tab_0">
@@ -17,24 +18,25 @@
 			</div>
 			<div class="portlet-body form">
 				<!-- BEGIN FORM-->
-				<form action="#" class="form-horizontal">
+				<?php echo $this->form()->openTag($form); ?>
+				
 					<div class="form-body">
 						<div class="form-group">
 							<label class="col-md-4 control-label">First Name</label>
 							<div class="col-md-4">
-								<input type="text" class="form-control" placeholder="Enter First Name">
+								<?php  echo $this->formRow($form->get('fname')); ?>
 							</div>
 						</div>
 						<div class="form-group">
 							<label class="col-md-4 control-label">Middle Name</label>
 							<div class="col-md-4">
-								<input type="text" class="form-control" placeholder="Enter Middle Name">
+								<?php  echo $this->formRow($form->get('mname')); ?>
 							</div>
 						</div>
 						<div class="form-group">
 							<label class="col-md-4 control-label">Last Name</label>
 							<div class="col-md-4">
-								<input type="text" class="form-control" placeholder="Enter Last Name">
+								<?php  echo $this->formRow($form->get('lname')); ?>
 							</div>
 						</div>
 						<div class="form-group">
@@ -44,47 +46,36 @@
 									<span class="input-group-addon">
 										<i class="fa fa-envelope"></i>
 									</span>
-									<input type="email" class="form-control" placeholder="Email Address">
+									<?php  echo $this->formRow($form->get('email')); ?>
 								</div>
 							</div>
 						</div>
 						<div class="form-group">
 							<label class="col-md-4 control-label">Role</label>
 							<div class="col-md-4">
-								<select class="select_role form-control" data-placeholder="Choose a Role" tabindex="1">
-								   	<option value="Choose Role">-select role-</option>
-								</select>
+								<?php  echo $this->formRow($form->get('role_id')); ?>
 							</div>
 						</div>
 						<div class="form-group">
 							<label class="col-md-4 control-label">Password</label>
 							<div class="col-md-4">
-								<div class="input-group">
-									<input type="password" class="form-control" placeholder="Password">
-									<span class="input-group-addon">
-										<i class="fa fa-user"></i>
-									</span>
-								</div>
+								<?php  echo $this->formRow($form->get('key')); ?>
 							</div>
 						</div>
 						<div class="form-group">
 							<label class="col-md-4 control-label">Confirm Password</label>
 							<div class="col-md-4">
-								<div class="input-group">
-									<input type="password" class="form-control" placeholder="Confirm Password">
-									<span class="input-group-addon">
-										<i class="fa fa-user"></i>
-									</span>
-								</div>
+								<?php  echo $this->formRow($form->get('secret')); ?>
 							</div>
 						</div>
 						<div class="form-actions fluid">
 							<div class="col-md-offset-3 col-md-9">
-								<button type="submit" class="btn blue">Submit</button>
+							<?php  echo $this->formRow($form->get('submit')); ?>
+							
 								<button type="button" class="btn default">Cancel</button>
 							</div>
 						</div>
-				</form>
+				<?php echo $this->form()->closeTag(); ?>
 				<!-- END FORM-->
 			</div>
 	</div>
