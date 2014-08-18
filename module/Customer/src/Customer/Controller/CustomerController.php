@@ -1,11 +1,11 @@
 <?php
-sdfsdfs
-namespace Product\Controller;
+
+namespace Customer\Controller;
 
 use Zend\Mvc\Controller\AbstractActionController;
 use Zend\View\Model\ViewModel;
 
-class ProductController extends AbstractActionController
+class CustomerController extends AbstractActionController
 {
 
     protected $objectTable = null;
@@ -13,15 +13,15 @@ class ProductController extends AbstractActionController
     public function indexAction()
     {
         return new ViewModel(array(
-              'products' => $this->getProductTable()->fetchAll()
+              'customers' => $this->getCustomerTable()->fetchAll()
         ));
     }
 
-    public function getProductTable()
+    public function getCustomerTable()
     {
         if(!$this->objectTable){
                     		$sm = $this->getServiceLocator();
-                    		$this->objectTable = $sm->get('Product\Model\ProductTable');
+                    		$this->objectTable = $sm->get('Customer\Model\CustomerTable');
                     	}
                     	return $this->objectTable;
     }

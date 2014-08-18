@@ -15,8 +15,8 @@ class UserController extends AbstractActionController
     public function indexAction()
     {
         return new ViewModel(array(
-                			'users' => $this->getUserTable()->fetchAll()
-                		));
+         'users' => $this->getUserTable()->fetchAll()
+         ));
     }
 
     public function addAction()
@@ -42,21 +42,21 @@ class UserController extends AbstractActionController
     public function getUserTable()
     {
         if(!$this->objectTable){
-                			$sm = $this->getServiceLocator();
-                			$this->objectTable = $sm->get('User\Model\UserTable');
-                		}
-                		return $this->objectTable;
-    }
+         $sm = $this->getServiceLocator();
+         $this->objectTable = $sm->get('User\Model\UserTable');
+     }
+     return $this->objectTable;
+ }
 
-    public function editAction()
-    {
-        return new ViewModel();
-    }
+ public function editAction()
+ {
+    return new ViewModel();
+}
 
-    public function delAction()
-    {
-        return new ViewModel();
-    }
+public function delAction()
+{
+    return new ViewModel();
+}
 
 
 }
