@@ -1,6 +1,6 @@
 /*
 SQLyog Trial v12.0 (64 bit)
-MySQL - 5.5.36 : Database - zend_erp
+MySQL - 5.6.16 : Database - zend_erp
 *********************************************************************
 */
 
@@ -16,26 +16,26 @@ CREATE DATABASE /*!32312 IF NOT EXISTS*/`zend_erp` /*!40100 DEFAULT CHARACTER SE
 
 USE `zend_erp`;
 
-/*Table structure for table `tblproducts` */
+/*Table structure for table `tblproduct` */
 
-DROP TABLE IF EXISTS `tblproducts`;
+DROP TABLE IF EXISTS `tblproduct`;
 
-CREATE TABLE `tblproducts` (
+CREATE TABLE `tblproduct` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `code` int(11) unsigned NOT NULL,
   `name` varchar(50) NOT NULL,
-  `brand` varchar(50) NOT NULL,
+  `brand_id` int(11) NOT NULL,
   `model` varchar(50) NOT NULL,
   `description` text,
   `uom` varchar(50) NOT NULL,
   `size` varchar(50) NOT NULL,
   `weight` varchar(50) NOT NULL,
   `status` varchar(50) NOT NULL,
-  `supplier` varchar(100) NOT NULL,
+  `supplier_id` int(11) NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
-/*Data for the table `tblproducts` */
+/*Data for the table `tblproduct` */
 
 /*Table structure for table `tblrole` */
 

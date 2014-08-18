@@ -4,7 +4,7 @@ return array(
     'router' => array(
         'routes' => array(
             'user_index' => array(
-                'type' => 'Zend\Mvc\Router\Http\Literal',
+                'type' => 'Literal',
                 'options' => array(
                     'route'    => '/user/user',
                     'defaults' => array(
