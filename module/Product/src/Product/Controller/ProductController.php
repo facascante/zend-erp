@@ -1,5 +1,5 @@
 <?php
-sdfsdfs
+
 namespace Product\Controller;
 
 use Zend\Mvc\Controller\AbstractActionController;

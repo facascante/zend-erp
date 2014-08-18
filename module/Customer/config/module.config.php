@@ -25,28 +25,28 @@ return array(
                     ),
                 ),
             ),
-        	'customer_edit' => array(
-        			'type'    => 'segment',
-        			'options' => array(
-        					'route'    => '/customer/customer/edit[/:id]',
-        					'defaults' => array(
-        							'__NAMESPACE__' => 'Customer\Controller',
-        							'controller'    => 'Customer',
-        							'action'        => 'edit',
-        					),
-        			),
-        	),
-        	'customer_del' => array(
-        			'type'    => 'segment',
-        			'options' => array(
-        					'route'    => '/customer/customer/del/:id',
-        					'defaults' => array(
-        							'__NAMESPACE__' => 'Customer\Controller',
-        							'controller'    => 'Customer',
-        							'action'        => 'del',
-        					),
-        			),
-        	)
+            'customer_edit' => array(
+                    'type'    => 'segment',
+                    'options' => array(
+                            'route'    => '/customer/customer/edit[/:id]',
+                            'defaults' => array(
+                                    '__NAMESPACE__' => 'Customer\Controller',
+                                    'controller'    => 'Customer',
+                                    'action'        => 'edit',
+                            ),
+                    ),
+            ),
+            'customer_del' => array(
+                    'type'    => 'segment',
+                    'options' => array(
+                            'route'    => '/customer/customer/del/:id',
+                            'defaults' => array(
+                                    '__NAMESPACE__' => 'Customer\Controller',
+                                    'controller'    => 'Customer',
+                                    'action'        => 'del',
+                            ),
+                    ),
+            )
         ),
     ),
     'controllers' => array(
