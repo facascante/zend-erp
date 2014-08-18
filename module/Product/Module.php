@@ -1,6 +1,11 @@
 <?php
 namespace Product;
 
+use Product\Model\Product;
+use Product\Model\ProductTable;
+use Zend\Db\ResultSet\ResultSet;
+use Zend\Db\TableGateway\TableGateway;
+
 class Module
 {
     public function getConfig()
@@ -17,5 +22,23 @@ class Module
                 ),
             ),
         );
+    }
+    public function getServiceConfig()
+    {
+    	return array(
+    			'factories' => array(
+    					'Product\Model\ProductTable' => function($sm){
+    						$tableGateway = $sm->get('ProductTableGateway');
+    						$table = new ProductTable($tableGateway);
+    						return $table;
+    					},
+    					'ProductTableGateway' => function ($sm){
+    						$dbAdapater = $sm->get('Zend\Db\Adapter\Adapter');
+    						$resultSetPrototype = new ResultSet();
+    						$resultSetPrototype->setArrayObjectPrototype(new Product());
+    						return new TableGateway('tblproduct',$dbAdapater,null,$resultSetPrototype);
+    					}
+    			),
+    	);
     }
 }

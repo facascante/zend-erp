@@ -8,7 +8,7 @@ use Zend\View\Model\ViewModel;
 class UserController extends AbstractActionController
 {
 
-    protected $userTable = null;
+    protected $objectTable = null;
 
     public function indexAction()
     {
@@ -24,11 +24,11 @@ class UserController extends AbstractActionController
 
     public function getUserTable()
     {
-        if(!$this->userTable){
+        if(!$this->objectTable){
                 			$sm = $this->getServiceLocator();
-                			$this->userTable = $sm->get('User\Model\UserTable');
+                			$this->objectTable = $sm->get('User\Model\UserTable');
                 		}
-                		return $this->userTable;
+                		return $this->objectTable;
     }
 
     public function editAction()

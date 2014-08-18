@@ -3,8 +3,8 @@
 return array(
     'router' => array(
         'routes' => array(
-            'user_index' => array(
-                'type' => 'Zend\Mvc\Router\Http\Literal',
+            'product_index' => array(
+                'type' => 'Literal',
                 'options' => array(
                     'route'    => '/product/product',
                     'defaults' => array(
@@ -14,7 +14,7 @@ return array(
                     ),
                 ),
             ),
-            'user_add' => array(
+            'product_add' => array(
                 'type'    => 'Literal',
                 'options' => array(
                     'route'    => '/product/product/add',
@@ -25,33 +25,33 @@ return array(
                     ),
                 ),
             ),
-        	'user_edit' => array(
-        			'type'    => 'segment',
-        			'options' => array(
-        					'route'    => '/product/product/edit[/:id]',
-        					'defaults' => array(
-        							'__NAMESPACE__' => 'Product\Controller',
-        							'controller'    => 'Product',
-        							'action'        => 'edit',
-        					),
-        			),
-        	),
-        	'user_del' => array(
-        			'type'    => 'segment',
-        			'options' => array(
-        					'route'    => '/product/product/del/:id',
-        					'defaults' => array(
-        							'__NAMESPACE__' => 'Product\Controller',
-        							'controller'    => 'Product',
-        							'action'        => 'del',
-        					),
-        			),
-        	)
+            'product_edit' => array(
+                    'type'    => 'segment',
+                    'options' => array(
+                            'route'    => '/product/product/edit[/:id]',
+                            'defaults' => array(
+                                    '__NAMESPACE__' => 'Product\Controller',
+                                    'controller'    => 'Product',
+                                    'action'        => 'edit',
+                            ),
+                    ),
+            ),
+            'product_del' => array(
+                    'type'    => 'segment',
+                    'options' => array(
+                            'route'    => '/product/product/del/:id',
+                            'defaults' => array(
+                                    '__NAMESPACE__' => 'Product\Controller',
+                                    'controller'    => 'Product',
+                                    'action'        => 'del',
+                            ),
+                    ),
+            )
         ),
     ),
     'controllers' => array(
         'invokables' => array(
-            'User\Controller\User' => 'Product\Controller\ProductController'
+            'Product\Controller\Product' => 'Product\Controller\ProductController'
         ),
     ),
     'view_manager' => array(
