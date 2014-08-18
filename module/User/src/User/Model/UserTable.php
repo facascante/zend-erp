@@ -27,6 +27,7 @@ class UserTable
 			throw new \Exception("Could Not find row $id");
 		}
 	}
+
 	public function saveUser(User $user)
 	{
 		

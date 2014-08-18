@@ -38,7 +38,7 @@ class ProductTable
 			$size => $product->size,
 			$weight => $product->weight,
 			$status => $product->status,
-			$supplier_id => $product->suppier_id
+			$supplier_id => $product->suppier_id,
 		);
 		$id = int($product->id);
 		if($id == 0){
