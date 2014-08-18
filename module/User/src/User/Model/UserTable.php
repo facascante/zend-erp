@@ -32,14 +32,15 @@ class UserTable
 	{
 		
 		$data = array(
-			$fname => $user->fname,
-			$mname => $user->mname,
-			$lname => $user->lname,
-			$role_id => $user->role_id,
-			$key => $user->key,
-			$secret => $user->secret,
+			'fname' => $user->fname,
+			'mname' => $user->mname,
+			'lname' => $user->lname,
+			'email' => $user->email,
+			'role_id' => $user->role_id,
+			'key' => $user->key,
+			'secret' => $user->secret,
 		);
-		$id = int($user->id);
+		$id = intval($user->id);
 		if($id == 0){
 			$this->tableGateway->insert($data);
 		}

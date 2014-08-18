@@ -25,11 +25,12 @@ class UserController extends AbstractActionController
          $form->get('submit')->setValue('Add');
 
          $request = $this->getRequest();
+        
          if ($request->isPost()) {
              $user = new User();
              $form->setInputFilter($user->getInputFilter());
              $form->setData($request->getPost());
-
+           
              if ($form->isValid()) {
                  $user->exchangeArray($form->getData());
                  $this->getUserTable()->saveUser($user);
