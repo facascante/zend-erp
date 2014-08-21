@@ -50,8 +50,8 @@ DROP TABLE IF EXISTS `tblcity`;
 CREATE TABLE `tblcity` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(100) NOT NULL,
-  `province_id` int(11) NOT NULL,
-  PRIMARY KEY (`id`,`name`,`province_id`)
+  `province` int(11) NOT NULL,
+  PRIMARY KEY (`id`,`name`,`province`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 /*Data for the table `tblcity` */
@@ -171,6 +171,7 @@ DROP TABLE IF EXISTS `tblproductsubcategory`;
 CREATE TABLE `tblproductsubcategory` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(100) NOT NULL,
+  `category` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`,`name`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
