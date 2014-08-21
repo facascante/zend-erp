@@ -22,7 +22,7 @@ DROP TABLE IF EXISTS `tbladdress`;
 
 CREATE TABLE `tbladdress` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `address` varchar(150) NOT NULL,
+  `street` varchar(250) NOT NULL,
   `city_id` int(11) NOT NULL,
   `province_id` int(11) NOT NULL,
   `zipcode` int(11) NOT NULL,
