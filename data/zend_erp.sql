@@ -130,8 +130,11 @@ CREATE TABLE `tblproduct` (
   `color` varchar(100) DEFAULT NULL,
   `size` varchar(100) DEFAULT NULL,
   `weight` varchar(100) DEFAULT NULL,
-  `status` varchar(100) NOT NULL,
   `supplier_id` int(11) NOT NULL,
+  `international_cost` float DEFAULT NULL,
+  `purchase_cost` varchar(100) DEFAULT NULL,
+  `currency` varchar(100) DEFAULT NULL,
+  `status` varchar(100) NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
