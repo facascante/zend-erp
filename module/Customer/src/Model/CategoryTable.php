@@ -4,7 +4,7 @@ namespace Customer\Model;
 
 use Zend\Db\TableGateway\TableGateway;
 
-class RoleTable
+class CategoryTable
 {
 	protected $tableGateway;
 	
@@ -28,7 +28,7 @@ class RoleTable
         
         return $selectData;
     }
-	public function getRole($id){
+	public function getCategory($id){
 		$id = (int) $id;
 		$rowset = $this->tableGateway->select(array('id' => $id));
 		$row = $rowset->current();
@@ -56,7 +56,7 @@ class RoleTable
 			}
 		}
 	}
-	public function deleteRole($id)
+	public function deleteCategory($id)
 	{
 		$this->tableGateway->delete(array('id' => (int) $id));
 	}
