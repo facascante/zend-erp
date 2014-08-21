@@ -5,28 +5,45 @@ namespace Customer\Model;
 class Customer
 {
 	public $id;
-	public $customer_category;
-	public $customer_type;
-	public $customer_name;
-	public $customer_consignee;
-	public $customer_branch;
-	public $customer_trade_name;
-	public $customer_tin;
-	public $customer_phone;
-	public $customer_email;
+	public $category;
+	public $type;
+	public $name;
+	public $trade_name;
+	public $consignee;
+	public $phone;
+	public $email;
+	public $owner;
+	public $contact_person;
+	public $tin;
+	public $website;
+	public $shipping_mode;
+	public $payment_terms;
+	public $unpaid_invoice;
+	public $credit_limit;
+	public $billing_address_id;
+	public $shipping_address_id;
+	public $sales_executive;
 	public $status;
 	
 	public function exchangeArray($data){
 		$this->id = (!empty($data['id'])) ? $data['id'] : null;
-		$this->customer_category = (!empty($data['customer_category'])) ? $data['customer_category'] : null;
-		$this->customer_type = (!empty($data['customer_type'])) ? $data['customer_type'] : null;
-		$this->customer_name= (!empty($data['customer_name'])) ? $data['customer_name'] : null;
-		$this->customer_consignee = (!empty($data['customer_consignee'])) ? $data['customer_consignee'] : null;
-		$this->customer_branch = (!empty($data['customer_branch'])) ? $data['customer_branch'] : null;
-		$this->customer_trade_name = (!empty($data['customer_trade_name'])) ? $data['customer_trade_name'] : null;
-		$this->customer_tin = (!empty($data['customer_tin'])) ? $data['customer_tin'] : null;
-		$this->customer_phone = (!empty($data['customer_phone'])) ? $data['customer_phone'] : null;
-		$this->customer_email = (!empty($data['customer_email'])) ? $data['customer_email'] : null;
+		$this->category = (!empty($data['category'])) ? $data['category'] : null;
+		$this->type = (!empty($data['type'])) ? $data['type'] : null;
+		$this->name= (!empty($data['name'])) ? $data['name'] : null;
+		$this->trade_name = (!empty($data['trade_name'])) ? $data['trade_name'] : null;
+		$this->consignee = (!empty($data['consignee'])) ? $data['consignee'] : null;
+		$this->phone = (!empty($data['phone'])) ? $data['phone'] : null;
+		$this->email = (!empty($data['email'])) ? $data['email'] : null;
+		$this->owner = (!empty($data['owner'])) ? $data['owner'] : null;
+		$this->contact_person = (!empty($data['contact_person'])) ? $data['contact_person'] : null;
+		$this->website = (!empty($data['website'])) ? $data['website'] : null;
+		$this->shipping_mode = (!empty($data['shipping_mode'])) ? $data['shipping_mode'] : null;
+		$this->payment_terms = (!empty($data['payment_terms'])) ? $data['payment_terms'] : null;
+		$this->unpaid_invoice = (!empty($data['unpaid_invoice'])) ? $data['unpaid_invoice'] : null;
+		$this->credit_limit = (!empty($data['credit_limit'])) ? $data['credit_limit'] : null;
+		$this->billing_address_id = (!empty($data['billing_address_id'])) ? $data['billing_address_id'] : null;
+		$this->shipping_address_id = (!empty($data['shipping_address_id'])) ? $data['shipping_address_id'] : null;
+		$this->sales_executive = (!empty($data['sales_executive'])) ? $data['sales_executive'] : null;
 		$this->status = (!empty($data['status'])) ? $data['status'] : null;
 		
 	}

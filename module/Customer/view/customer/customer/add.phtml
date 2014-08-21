@@ -1,3 +1,4 @@
+
 <div class="tab-pane active" id="tab_0">
 		<div class="portlet box green">
 			<div class="portlet-title">
@@ -15,7 +16,7 @@
 			<!-- BEGIN FORM-->
 			<form action="#" class="form-horizontal">
 				<div class="form-body">
-				
+			<h3 class="form-section">Customer Profile</h3>				
 					<div class="form-group">
 						<label class="col-md-2 control-label">Category</label>
 						<div class="col-md-3">
@@ -25,8 +26,8 @@
 						</div>
 						<label class="col-md-2 control-label">Type</label>
 						<div class="col-md-3">
-							<select class="select_role form-control" data-placeholder="Choose Category" tabindex="1">
-								<?php  echo $this->formRow($form->get('category')); ?>
+							<select class="select_type form-control" data-placeholder="Choose Category" tabindex="1">
+								<?php  echo $this->formRow($form->get('type')); ?>
 							</select>
 						</div>
 					</div>
@@ -34,116 +35,173 @@
 					<div class="form-group">
 						<label class="col-md-2 control-label">Owner Name</label>
 						<div class="col-md-3">
-							<input type="text" class="form-control" placeholder="Enter Owner Name">
+							<?php  echo $this->formRow($form->get('owner')); ?>
 						</div>
 						<label class="col-md-2 control-label">Company Name</label>
 						<div class="col-md-3">
-							<input type="text" class="form-control" placeholder="Enter Company Name">
+							<?php  echo $this->formRow($form->get('name')); ?>
 						</div>
 					</div>
 					
-					
-					
-					<div class="form-group">
-						<label class="col-md-2 control-label">Consignee</label>
-						<div class="col-md-3">
-							<select class="select_consignor form-control" data-placeholder="" tabindex="1">
-								<option value="Yes">No</option>
-								<option value="No">Yes</option>
-							</select>
-						</div>
-						<label class="col-md-2 control-label">Branch</label>
-						<div class="col-md-3">
-							<input type="text" class="form-control" placeholder="Enter Branch">
-						</div>
-					</div>
-					<div class="form-group">
-						<label class="col-md-2 control-label">Franchise</label>
-						<div class="col-md-3">
-							<select class="select_role form-control" data-placeholder="Choose Category" tabindex="1">
-								<option value="Yes">No</option>	
-								<option value="No">Yes</option>
-							</select>
-						</div>
-						<label class="col-md-2 control-label">Phone</label>
-						<div class="col-md-3">
-							<input type="text" class="form-control" placeholder="Enter Phone Number">
-						</div>
-					</div>
 					<div class="form-group">
 						<label class="col-md-2 control-label">Trade Name</label>
 						<div class="col-md-3">
-							<input type="text" class="form-control" placeholder="Enter Trade Name">
+							<?php  echo $this->formRow($form->get('trade_name')); ?>
 						</div>
-						<label class="col-md-2 control-label">TIN</label>
+						<label class="col-md-2 control-label">Consignee</label>
 						<div class="col-md-3">
-							<input type="text" class="form-control" placeholder="Enter Company TIN">
+							<?php  echo $this->formRow($form->get('consignee')); ?>
+						</div>
+					
+					</div>
+					<div class="form-group">
+				
+						<label class="col-md-2 control-label">Phone</label>
+						<div class="col-md-3">
+							<?php  echo $this->formRow($form->get('phone')); ?>
+						</div>
+						<label class="col-md-2 control-label">Website</label>
+						<div class="col-md-3">
+							<?php  echo $this->formRow($form->get('website')); ?>
 						</div>
 					</div>
 					<div class="form-group">
-						<label class="col-md-2 control-label">Website</label>
-						<div class="col-md-3">
-							<input type="text" class="form-control" placeholder="Enter Website">
-						</div>
-						<label class="col-md-2 control-label">Email Address</label>
+					<label class="col-md-2 control-label">Email Address</label>
 							<div class="col-md-3">
 								<div class="input-group">
 									<span class="input-group-addon">
 										<i class="fa fa-envelope"></i>
 									</span>
-									<input type="text" class="form-control" placeholder="Enter Email Address">
+									<?php  echo $this->formRow($form->get('email')); ?>
 								</div>
 							</div>
+						<label class="col-md-2 control-label">TIN</label>
+						<div class="col-md-3">
+							<?php  echo $this->formRow($form->get('tin')); ?>
+						</div>
 					</div>
 					<div class="form-group">
+						<label class="col-md-2 control-label">Unpaid Invoice</label>
+						<div class="col-md-3">
+							<?php  echo $this->formRow($form->get('unpaid_invoice')); ?>
+						</div>
 						<label class="col-md-2 control-label">Allow Credit</label>
-						<div class="col-md-3">
-							<select class="select_role form-control" data-placeholder="------" tabindex="0">
-								<option value="No">No</option>
-								<option value="Yes">Yes</option>
-							</select>
-						</div>
-						<label class="col-md-2 control-label">Payment Terms</label>
-						<div class="col-md-3">
-							<select class="select_role form-control" data-placeholder="Select Terms" tabindex="1">
-								<option value="Yes">COD</option>
-								<option value="No">30 Days</option>
-								<option value="No">15 Days</option>
-							</select>
+						<div class="col-md-3"> 
+							<?php  echo $this->formRow($form->get('allow_credit')); ?>
 						</div>
 					</div>
+					
 					<div class="form-group">
-						<label class="col-md-2 control-label">Preferred Shipping Mode</label>
+							<label class="col-md-2 control-label">Payment Terms</label>
 						<div class="col-md-3">
-							<select class="select_role form-control" data-placeholder="Select Mode" tabindex="0">
-								<option value="Select Mode">Select Mode</option>
-							</select>
+							<?php  echo $this->formRow($form->get('payment_terms')); ?>
 						</div>
-						<label class="col-md-2 control-label">Price Type</label>
+						
+					<label class="col-md-2 control-label">Preferred Shipping Mode</label>
 						<div class="col-md-3">
-							<select class="select_role form-control" data-placeholder="Select Terms" tabindex="1">
-								<option value="PriceType">Select Price Type</option>
-								
-							</select>
+						<?php  echo $this->formRow($form->get('shipping_mode')); ?>
 						</div>
 					</div>
+					
 					<div class="form-group">
-				
 						<label class="col-md-2 control-label">Assigned SE</label>
 						<div class="col-md-3">
-							<select class="select_role form-control" data-placeholder="Select SE" tabindex="0">
-								<option value="1">Select SE</option>
-								
-							</select>
+							<?php  echo $this->formRow($form->get('sales_executive')); ?>
 						</div>
+						
 						<label class="col-md-2 control-label">Status</label>
 						<div class="col-md-3">
-							<select class="select_role form-control" data-placeholder="Select Status" tabindex="0">
-								<option value="1">Select Status</option>
-								
-							</select>
+							<?php  echo $this->formRow($form->get('status')); ?>
 						</div>
 					</div>
+
+	<!--Customer Profile End-->
+	<!--Customer Shipping Address Start-->
+	<h3 class="form-section">Shipping Address</h3>
+		<div class ="container">
+		<div class="row">
+			<div class="col-md-11 ">
+				<div class="form-group">
+					<label>Street</label>
+							<?php  echo $this->formRow($form->get('street')); ?>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-5">
+				<div class="form-group">
+					
+						<label>City</label>
+							<?php  echo $this->formRow($form->get('city')); ?>
+				</div>
+		</div>
+			<!--/span-->
+		<div class="col-md-offset-1 col-md-5">
+			<div class="form-group">
+				<label>Province</label>
+					<?php  echo $this->formRow($form->get('province')); ?>
+			</div>
+		</div>
+		<!--/span-->
+		
+			<!--/row-->
+		
+				<div class="col-md-5">
+					<div class="form-group">
+						<label>Zip Code</label>
+							<?php  echo $this->formRow($form->get('zipcode')); ?>
+					</div>
+				</div>			
+							<!--/span-->
+				
+			</div>
+			
+		</div>
+	
+	<!--Customer Shipping Address End-->
+	<!--Customer Billing Address Start-->
+	<h3 class="form-section">Billing Address</h3>
+			<div class ="container">
+				<div class="row">
+					<div class="col-md-11 ">
+						<div class="form-group">
+							<label>Street</label>
+							<?php  echo $this->formRow($form->get('street')); ?>
+						</div>
+					</div>
+				</div>
+		<div class="row">
+			<div class="col-md-5">
+				<div class="form-group">
+					
+						<label>City</label>
+							<?php  echo $this->formRow($form->get('city')); ?>
+						
+				</div>
+			</div>
+			<div class="col-md-offset-1 col-md-5">
+				<div class="form-group">
+					
+						<label>Province</label>
+							<?php  echo $this->formRow($form->get('province')); ?>
+				</div>
+			</div>
+		</div>
+			<!--/span-->
+		<div class="row">
+			<div class="col-md-5">
+				<div class="form-group">
+					
+						<label>Zip Code</label>
+							<?php  echo $this->formRow($form->get('zipcode')); ?>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!--Customer Billing Address End-->
+	
+	
+	
 				<div class="form-actions fluid">
 					<div class="col-md-offset-5 col-md-6">
 						<button type="submit" class="btn blue">Submit</button>
@@ -154,4 +212,4 @@
 				<!-- END FORM-->
 			</form>
 		</div>
-	</div>
+</div>	
