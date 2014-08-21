@@ -24,7 +24,7 @@ DROP TABLE IF EXISTS `tblcustomer`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `tblcustomer` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `custumer_category` varchar(50) NOT NULL,
+  `customer_category` varchar(50) NOT NULL,
   `customer_type` varchar(50) NOT NULL,
   `customer_name` varchar(50) NOT NULL,
   `customer_consignee` varchar(50) NOT NULL,
@@ -145,7 +145,7 @@ DROP TABLE IF EXISTS `tbluser`;
 CREATE TABLE `tbluser` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `fname` varchar(50) NOT NULL,
-  `mname` varbinary(50) NOT NULL,
+  `mname` varchar(50) NOT NULL,
   `lname` varchar(50) NOT NULL,
   `email` varchar(50) NOT NULL,
   `role_id` int(11) NOT NULL,

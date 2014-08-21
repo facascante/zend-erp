@@ -31,18 +31,18 @@ class CustomerTable
 	{
 		
 		$data = array(
-			$customer_category => $customer->customer_category,
-			$customer_type => $customer->customer_type,
-			$customer_name => $customer->customer_name,
-			$customer_consignee => $customer->customer_consignee,
-			$customer_branch => $customer->customer_branch,
-			$customer_trade_name => $customer->customer_trade_name,
-			$customer_phone => $customer->customer_phone,
-			$customer_email => $customer->customer_email,
-			$status => $customer->status,
-			$customer_tin => $customer->customer_tin
+			'category' => $customer->category,
+			'type' => $customer->type,
+			'name' => $customer->name,
+			'consignee' => $customer->consignee,
+			'branch' => $customer->branch,
+			'trade_name' => $customer->trade_name,
+			'phone' => $customer->phone,
+			'email' => $customer->email,
+			'status' => $customer->status,
+			'tin' => $customer->tin
 		);
-		$id = int($customer->id);
+		$id = intval($customer->id);
 		if($id == 0){
 			$this->tableGateway->insert($data);
 		}

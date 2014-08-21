@@ -1,4 +1,5 @@
 <?php
+
 namespace User\Model;
 
 use Zend\Db\TableGateway\TableGateway;
