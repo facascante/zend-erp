@@ -31,6 +31,18 @@ CREATE TABLE `tbladdress` (
 
 /*Data for the table `tbladdress` */
 
+/*Table structure for table `tblbrand` */
+
+DROP TABLE IF EXISTS `tblbrand`;
+
+CREATE TABLE `tblbrand` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(100) NOT NULL,
+  PRIMARY KEY (`id`,`name`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+/*Data for the table `tblbrand` */
+
 /*Table structure for table `tblcity` */
 
 DROP TABLE IF EXISTS `tblcity`;
@@ -122,19 +134,19 @@ CREATE TABLE `tblproduct` (
   `bl_code` varchar(100) DEFAULT NULL,
   `print_code` varchar(100) NOT NULL,
   `name` varchar(50) NOT NULL,
-  `brand_id` int(11) NOT NULL,
+  `brand` int(11) NOT NULL,
   `category` int(11) NOT NULL,
   `subcategory` int(11) DEFAULT NULL,
   `description` text NOT NULL,
-  `uom` varchar(1000) NOT NULL,
+  `uom` int(11) NOT NULL,
   `color` varchar(100) DEFAULT NULL,
   `size` varchar(100) DEFAULT NULL,
   `weight` varchar(100) DEFAULT NULL,
-  `supplier_id` int(11) NOT NULL,
+  `supplier` int(11) NOT NULL,
   `international_cost` float DEFAULT NULL,
   `purchase_cost` varchar(100) DEFAULT NULL,
   `currency` varchar(100) DEFAULT NULL,
-  `status` varchar(100) NOT NULL,
+  `status` int(11) NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -151,6 +163,18 @@ CREATE TABLE `tblproductcategory` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 /*Data for the table `tblproductcategory` */
+
+/*Table structure for table `tblproductsubcategory` */
+
+DROP TABLE IF EXISTS `tblproductsubcategory`;
+
+CREATE TABLE `tblproductsubcategory` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(100) NOT NULL,
+  PRIMARY KEY (`id`,`name`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+/*Data for the table `tblproductsubcategory` */
 
 /*Table structure for table `tblprovince` */
 
@@ -189,6 +213,18 @@ CREATE TABLE `tblsupplier` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 /*Data for the table `tblsupplier` */
+
+/*Table structure for table `tbluom` */
+
+DROP TABLE IF EXISTS `tbluom`;
+
+CREATE TABLE `tbluom` (
+  `id` float NOT NULL AUTO_INCREMENT,
+  `name` varchar(100) NOT NULL,
+  PRIMARY KEY (`id`,`name`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+/*Data for the table `tbluom` */
 
 /*Table structure for table `tbluser` */
 
