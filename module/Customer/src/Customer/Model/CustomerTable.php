@@ -31,25 +31,16 @@ class CustomerTable
 	{
 		
 		$data = array(
-			$category_id => $customer->category_id,
-			$type_id => $customer->type_id,
-			$owner_name => $customer->owner_name,
-			$company_name => $customer->company_name
-			$consignee => $customer->consignee,
-			$branch => $customer->branch,
-			$franchise => $customer->franchise,
-			$phone => $customer->phone,
-			$trade_name => $customer->trade_name,
-			$company_tin => $customer->company_tin,
-			$website => $customer->website,
-			$email => $customer->email,
-			$credit_allow_id => $customer->credit_allow_id,
-			$payment_term_id => $customer->payment_term_id,
-			$ship_mode_id => $customer->ship_mode_id,
-			$price_type_id => $customer->price_type_id,
-			$se_id => $customer->se_id,
-			$status => $customer->status
-			
+			$customer_category => $customer->customer_category,
+			$customer_type => $customer->customer_type,
+			$customer_name => $customer->customer_name,
+			$customer_consignee => $customer->customer_consignee,
+			$customer_branch => $customer->customer_branch,
+			$customer_trade_name => $customer->customer_trade_name,
+			$customer_phone => $customer->customer_phone,
+			$customer_email => $customer->customer_email,
+			$status => $customer->status,
+			$customer_tin => $customer->customer_tin
 		);
 		$id = int($customer->id);
 		if($id == 0){

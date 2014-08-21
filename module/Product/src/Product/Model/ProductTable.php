@@ -31,22 +31,24 @@ class ProductTable
 	{
 		
 		$data = array(
-			$code => $product->code,
-			$name => $product->name,
-			$brand_id => $product->brand_id,
-			$description => $product->description,
-			$size => $product->size,
-			$weight => $product->weight,
-			$status => $product->status,
-			$supplier_id => $product->suppier_id
-		);
-		$id = int($product->id);
-		if($id == 0){
-			$this->tableGateway->insert($data);
-		}
-		else {
-			if($this->getProduct($id)){
-				$this->tableGateway->update($data,array('id' => $id));
+			'code' => $product->code,
+            'name' => $product->name,
+            'brand_id' => $product->brand_id,
+            'model' => $product->model,
+            'description' => $product->description,
+            'size' => $product->size,
+            'weight' => $product->weight,
+            'uom' => $product->uom,
+            'status' => $product->status,
+            'supplier_id' => $product->supplier_id,
+        );
+        $id = intval($product->id);
+        if($id == 0){
+            $this->tableGateway->insert($data);
+        }
+        else {
+            if($this->getProduct($id)){
+                $this->tableGateway->update($data,array('id' => $id));
 			}
 			else{
 				throw new \Exception('Product id does not exist');

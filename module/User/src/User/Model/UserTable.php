@@ -1,4 +1,5 @@
 <?php
+
 namespace User\Model;
 
 use Zend\Db\TableGateway\TableGateway;
@@ -27,6 +28,7 @@ class UserTable
 			throw new \Exception("Could Not find row $id");
 		}
 	}
+
 	public function saveUser(User $user)
 	{
 		
