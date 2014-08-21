@@ -10,7 +10,8 @@ return array(
         'Application',
         'User',
         'Product',
-        'Customer'
+        'Customer',
+        'Sales'
     ),
     'module_listener_options' => array(
         'module_paths' => array(

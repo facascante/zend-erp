@@ -29,18 +29,25 @@ class ProductTable
 	}
 	public function saveProduct(Product $product)
 	{
-		
 		$data = array(
-			'code' => $product->code,
+			'item_code' => $product->item_code,
+			'supplier_code' => $product->supplier_code,
+			'bl_code' => $product->bl_code,
+			'print_code' => $product->print_code,
             'name' => $product->name,
-            'brand_id' => $product->brand_id,
-            'model' => $product->model,
+            'brand' => $product->brand,
+            'category' => $product->category,
+            'subcategory' => $product->subcategory,
             'description' => $product->description,
+            'uom' => $product->uom,
+            'color' => $product->color,
             'size' => $product->size,
             'weight' => $product->weight,
-            'uom' => $product->uom,
+            'supplier' => $product->uom,
+            'international_cost' => $product->international_cost,
+            'purchase_cost' => $product->purchase_cost,
+            'currency' => $product->currency,
             'status' => $product->status,
-            'supplier_id' => $product->supplier_id,
         );
         $id = intval($product->id);
         if($id == 0){

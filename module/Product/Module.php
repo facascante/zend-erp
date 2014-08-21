@@ -37,7 +37,35 @@ class Module
     						$resultSetPrototype = new ResultSet();
     						$resultSetPrototype->setArrayObjectPrototype(new Product());
     						return new TableGateway('tblproduct',$dbAdapater,null,$resultSetPrototype);
-    					}
+    					},
+
+
+
+                       'Product\Model\CategoryTable' => function($sm){
+                            $tableGateway = $sm->get('CategoryTableGateway');
+                            $table = new CategoryTable($tableGateway);
+                            return $table;
+                        },
+                       'CategoryTableGateway' => function ($sm){
+                            $dbAdapater = $sm->get('Zend\Db\Adapter\Adapter');
+                            $resultSetPrototype = new ResultSet();
+                            $resultSetPrototype->setArrayObjectPrototype(new Product());
+                            return new TableGateway('tblproductcategory',$dbAdapater,null,$resultSetPrototype);
+                        },
+
+
+
+                       'Product\Model\SubCategoryTable' => function($sm){
+                            $tableGateway = $sm->get('SubCategoryTableGateway');
+                            $table = new SubCategoryTable($tableGateway);
+                            return $table;
+                        },
+                       'SubCategoryTableGateway' => function ($sm){
+                            $dbAdapater = $sm->get('Zend\Db\Adapter\Adapter');
+                            $resultSetPrototype = new ResultSet();
+                            $resultSetPrototype->setArrayObjectPrototype(new Product());
+                            return new TableGateway('tblproductsubcategory',$dbAdapater,null,$resultSetPrototype);
+                        },
     			),
     	);
     }
