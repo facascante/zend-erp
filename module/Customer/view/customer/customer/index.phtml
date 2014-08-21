@@ -1,16 +1,16 @@
 <table class="table">
  <tr>
- <th>Type</th>
- <th>Name</th>
+ <th>Customer_Type</th>
+ <th>Owner_Name</th>
  <th>&nbsp;</th>
  </tr>
  <?php foreach ($customers as $customer) : ?>
 	 <tr>
-	 <td><?php echo $this->escapeHtml($customer->code);?></td>
-	 <td><?php echo $this->escapeHtml($customer->name);?></td>
+	 <td><?php echo $this->escapeHtml($customer->type_id);?></td>
+	 <td><?php echo $this->escapeHtml($customer->owner_name);?></td>
 	 <td>
-	 	<a href="<?php echo $this->url('product_edit',array('action'=>'edit', 'id' => $customer->id));?>">Edit</a>
-	 	<a href="<?php echo $this->url('product_del',array('action'=>'delete', 'id' => $customer->id));?>">Delete</a>
+	 	<a href="<?php echo $this->url('customer_edit',array('action'=>'edit', 'id' => $customer->id));?>">Edit</a>
+	 	<a href="<?php echo $this->url('customer_del',array('action'=>'delete', 'id' => $customer->id));?>">Delete</a>
 	 </td>
 	 </tr>
  <?php endforeach; ?>
