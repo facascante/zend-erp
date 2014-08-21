@@ -63,6 +63,8 @@ CREATE TABLE `tblcustomer` (
   `unpaid_invoice` int(11) NOT NULL,
   `credit_limit` float NOT NULL,
   `status` int(11) NOT NULL,
+  `billing_address_id` int(11) DEFAULT NULL,
+  `shipping_address_id` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
