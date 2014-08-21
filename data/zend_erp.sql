@@ -53,18 +53,22 @@ CREATE TABLE `tblcustomer` (
   `category` int(11) NOT NULL,
   `type` int(11) NOT NULL,
   `name` varchar(50) NOT NULL,
-  `trade_name` varchar(50) NOT NULL,
+  `trade_name` varchar(50) DEFAULT NULL,
   `consignee` tinyint(1) NOT NULL,
   `phone` varchar(50) NOT NULL,
-  `email` varchar(50) NOT NULL,
-  `tin` int(11) NOT NULL,
+  `email` varchar(50) DEFAULT NULL,
+  `owner` varchar(150) DEFAULT NULL,
+  `contact_person` varchar(150) DEFAULT NULL,
+  `tin` int(11) DEFAULT NULL,
+  `website` varchar(200) DEFAULT NULL,
   `shipping_mode` int(11) NOT NULL,
   `payment_terms` int(11) NOT NULL,
   `unpaid_invoice` int(11) NOT NULL,
   `credit_limit` float NOT NULL,
-  `status` int(11) NOT NULL,
   `billing_address_id` int(11) DEFAULT NULL,
   `shipping_address_id` int(11) DEFAULT NULL,
+  `sales_executive` int(11) DEFAULT NULL,
+  `status` int(11) NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -94,47 +98,56 @@ CREATE TABLE `tblcustomertype` (
 
 /*Data for the table `tblcustomertype` */
 
+/*Table structure for table `tblerpstatus` */
+
+DROP TABLE IF EXISTS `tblerpstatus`;
+
+CREATE TABLE `tblerpstatus` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(100) NOT NULL,
+  `category` varchar(100) NOT NULL,
+  PRIMARY KEY (`id`,`name`,`category`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+/*Data for the table `tblerpstatus` */
+
 /*Table structure for table `tblproduct` */
 
 DROP TABLE IF EXISTS `tblproduct`;
 
 CREATE TABLE `tblproduct` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `code` int(11) unsigned NOT NULL,
+  `item_code` varchar(11) NOT NULL,
+  `supplier_code` varchar(100) DEFAULT NULL,
+  `bl_code` varchar(100) DEFAULT NULL,
+  `print_code` varchar(100) NOT NULL,
   `name` varchar(50) NOT NULL,
   `brand_id` int(11) NOT NULL,
-  `model` varchar(50) NOT NULL,
-  `description` text,
-  `uom` varchar(50) NOT NULL,
-  `size` varchar(50) NOT NULL,
-  `weight` varchar(50) NOT NULL,
-  `status` varchar(50) NOT NULL,
+  `category` int(11) NOT NULL,
+  `subcategory` int(11) DEFAULT NULL,
+  `description` text NOT NULL,
+  `uom` varchar(1000) NOT NULL,
+  `color` varchar(100) DEFAULT NULL,
+  `size` varchar(100) DEFAULT NULL,
+  `weight` varchar(100) DEFAULT NULL,
+  `status` varchar(100) NOT NULL,
   `supplier_id` int(11) NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 /*Data for the table `tblproduct` */
 
-/*Table structure for table `tblproducts` */
+/*Table structure for table `tblproductcategory` */
 
-DROP TABLE IF EXISTS `tblproducts`;
+DROP TABLE IF EXISTS `tblproductcategory`;
 
-CREATE TABLE `tblproducts` (
+CREATE TABLE `tblproductcategory` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `code` int(11) unsigned NOT NULL,
-  `name` varchar(50) NOT NULL,
-  `brand` varchar(50) NOT NULL,
-  `model` varchar(50) NOT NULL,
-  `description` text,
-  `uom` varchar(50) NOT NULL,
-  `size` varchar(50) NOT NULL,
-  `weight` varchar(50) NOT NULL,
-  `status` varchar(50) NOT NULL,
-  `supplier` varchar(100) NOT NULL,
-  PRIMARY KEY (`id`)
+  `name` varchar(200) NOT NULL,
+  PRIMARY KEY (`id`,`name`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
-/*Data for the table `tblproducts` */
+/*Data for the table `tblproductcategory` */
 
 /*Table structure for table `tblprovince` */
 
@@ -161,6 +174,18 @@ CREATE TABLE `tblrole` (
 /*Data for the table `tblrole` */
 
 insert  into `tblrole`(`id`,`name`) values (1,'Developer'),(2,'Administrator');
+
+/*Table structure for table `tblsupplier` */
+
+DROP TABLE IF EXISTS `tblsupplier`;
+
+CREATE TABLE `tblsupplier` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(500) NOT NULL,
+  PRIMARY KEY (`id`,`name`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+/*Data for the table `tblsupplier` */
 
 /*Table structure for table `tbluser` */
 
