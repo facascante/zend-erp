@@ -117,6 +117,13 @@ $form->prepare();
                 </div>
             </div>
 
+            <div class="form-actions fluid">
+                <div class="col-md-offset-3 col-md-9">
+                    <?php  echo $this->formRow($form->get('submit')); ?>
+                    <button type="button" class="btn default">Cancel</button>
+                </div>
+            </div>
+
             <!-- END FORM-->
             <?php echo $this->form()->closeTag(); ?>
         </div>
