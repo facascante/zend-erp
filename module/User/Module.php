@@ -3,6 +3,8 @@ namespace User;
 
 use User\Model\User;
 use User\Model\UserTable;
+use User\Model\Role;
+use User\Model\RoleTable;
 use Zend\Db\ResultSet\ResultSet;
 use Zend\Db\TableGateway\TableGateway;
 
@@ -37,6 +39,17 @@ class Module
     				$resultSetPrototype = new ResultSet();
     				$resultSetPrototype->setArrayObjectPrototype(new User());
     				return new TableGateway('tbluser',$dbAdapater,null,$resultSetPrototype);
+    			},
+    			'Role\Model\RoleTable' => function($sm){
+    				$tableGateway = $sm->get('RoleTableGateway');
+    				$table = new RoleTable($tableGateway);
+    				return $table;
+    			},
+    			'RoleTableGateway' => function ($sm){
+    				$dbAdapater = $sm->get('Zend\Db\Adapter\Adapter');
+    				$resultSetPrototype = new ResultSet();
+    				$resultSetPrototype->setArrayObjectPrototype(new Role());
+    				return new TableGateway('tblrole',$dbAdapater,null,$resultSetPrototype);
     			}
     		),
     	);

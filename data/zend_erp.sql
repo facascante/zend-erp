@@ -56,6 +56,18 @@ CREATE TABLE `tblcity` (
 
 /*Data for the table `tblcity` */
 
+/*Table structure for table `tblcurrency` */
+
+DROP TABLE IF EXISTS `tblcurrency`;
+
+CREATE TABLE `tblcurrency` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(100) NOT NULL,
+  PRIMARY KEY (`id`,`name`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+/*Data for the table `tblcurrency` */
+
 /*Table structure for table `tblcustomer` */
 
 DROP TABLE IF EXISTS `tblcustomer`;
@@ -144,8 +156,8 @@ CREATE TABLE `tblproduct` (
   `weight` varchar(100) DEFAULT NULL,
   `supplier` int(11) NOT NULL,
   `international_cost` float DEFAULT NULL,
-  `purchase_cost` varchar(100) DEFAULT NULL,
-  `currency` varchar(100) DEFAULT NULL,
+  `purchase_cost` float DEFAULT NULL,
+  `currency` int(11) DEFAULT NULL,
   `status` int(11) NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;

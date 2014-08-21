@@ -10,7 +10,8 @@ use User\Form\UserForm;
 class UserController extends AbstractActionController
 {
 
-    protected $objectTable = null;
+    protected $userTable = null;
+    protected $roleTable = null;
 
     public function indexAction()
     {
@@ -21,7 +22,7 @@ class UserController extends AbstractActionController
 
     public function addAction()
     {
-        $form = new UserForm();
+         $form = new UserForm();
          $form->get('submit')->setValue('Add');
 
          $request = $this->getRequest();
@@ -39,26 +40,30 @@ class UserController extends AbstractActionController
          }
          return array('form' => $form);
     }
-
+    public function editAction()
+    {
+    	return new ViewModel();
+    }
+    
+    public function delAction()
+    {
+    	return new ViewModel();
+    }
     public function getUserTable()
     {
-        if(!$this->objectTable){
-         $sm = $this->getServiceLocator();
-         $this->objectTable = $sm->get('User\Model\UserTable');
-     }
-     return $this->objectTable;
- }
-
- public function editAction()
- {
-    return new ViewModel();
-}
-
-public function delAction()
-{
-    return new ViewModel();
-}
-
-
+        if(!$this->userTable){
+        	$sm = $this->getServiceLocator();
+        	$this->userTable = $sm->get('User\Model\UserTable');
+     	}
+     	return $this->userTable;
+ 	}
+ 	public function getRoleTable()
+ 	{
+ 		if(!$this->roleTable){
+ 			$sm = $this->getServiceLocator();
+ 			$this->roleTable = $sm->get('User\Model\RoleTable');
+ 		}
+ 		return $this->roleTable;
+ 	}
 }
 
