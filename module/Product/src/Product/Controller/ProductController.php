@@ -68,10 +68,10 @@ class ProductController extends AbstractActionController
         }
 
 
-        $user = $this->getUserTable()->getUser($id);
-        if(!$this->roleTable){
+        $product = $this->getProductTable()->getProduct($id);
+        if(!$this->CategoryTable){
             $sm = $this->getServiceLocator();
-            $this->roleTable = $sm->get('User\Model\RoleTable');
+            $this->roleTable = $sm->get('User\Model\CategoryTable');
         }
 
 
@@ -84,7 +84,7 @@ class ProductController extends AbstractActionController
             $form->setData($request->getPost());
 
             if ($form->isValid()) {
-                $this->getUserTable()->saveUser($form->getData());
+                $this->getProductTable()->saveUser($form->getData());
 
                 // Redirect to list of albums
                 return $this->redirect()->toRoute('user_index');
