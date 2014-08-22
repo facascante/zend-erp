@@ -103,7 +103,7 @@ class UserForm extends Form
 				'attributes' => array(
 						'class' => 'select_status form-control',
 						'data-placeholder' => 'Choose Status',
-						'tabindex' => '1',
+						'tabindex' => 2,
 						'id' => 'status',
 				),
 				'options' => array(

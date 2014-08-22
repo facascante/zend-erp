@@ -34,20 +34,23 @@ class UserController extends AbstractActionController
     		$this->roleTable = $sm->get('User\Model\RoleTable');
     	 }
          $form = new UserForm(array( 'statusTable' => $this->statusTable,'roleTable' => $this->roleTable));
-    	          $form->get('submit')->setValue('Save');
-
-         $request = $this->getRequest();
-        
+    	 $form->get('submit')->setValue('Save');
+         $request = $this->getRequest();   
          if ($request->isPost()) {
              $user = new User();
              $form->setInputFilter($user->getInputFilter());
+             var_dump($request->getPost());
              $form->setData($request->getPost());
+           // var_dump($form->isValid());
+          //   die();
              if ($form->isValid()) {
                  $user->exchangeArray($form->getData());
                  $this->getUserTable()->saveUser($user);
                  return $this->redirect()->toRoute('user_index');
              }
          }
+       //  var_dump($form);
+       //  die();
          return array('form' => $form);
     }
     public function editAction()

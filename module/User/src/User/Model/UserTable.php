@@ -36,10 +36,10 @@ class UserTable
 			'mname' => $user->mname,
 			'lname' => $user->lname,
 			'email' => $user->email,
-			'role' => $user->role,
+			'role' => (int)$user->role,
 			'username' => $user->username,
 			'secret' => $user->secret,
-			'status' => $user->status,
+			'status' => (int)$user->status,
 		);
 		$id = intval($user->id);
 		if($id == 0){
