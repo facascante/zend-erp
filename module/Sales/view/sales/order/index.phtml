@@ -1,0 +1,17 @@
+<table class="table">
+ <tr>
+ <th>SONO</th>
+ <th>Customer</th>
+ <th>&nbsp;</th>
+ </tr>
+ <?php foreach ($orders as $order) : ?>
+	 <tr>
+	 <td><?php echo $this->escapeHtml($order->sono);?></td>
+	 <td><?php echo $this->escapeHtml($order->customer);?></td>
+	 <td>
+	 	<a href="<?php echo $this->url('user_edit',array('action'=>'edit', 'id' => $order->id));?>">Edit</a>
+	 	<a href="<?php echo $this->url('user_del',array('action'=>'delete', 'id' => $order->id));?>">Delete</a>
+	 </td>
+	 </tr>
+ <?php endforeach; ?>
+</table>
