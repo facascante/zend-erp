@@ -22,9 +22,10 @@ class UserTable
 		$id = (int) $id;
 		$rowset = $this->tableGateway->select(array('id' => $id));
 		$row = $rowset->current();
-		if($row){
+		if(!$row){
 			throw new \Exception("Could Not find row $id");
 		}
+		return $row;
 	}
 
 	public function saveUser(User $user)

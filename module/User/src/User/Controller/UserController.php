@@ -48,7 +48,38 @@ class UserController extends AbstractActionController
     }
     public function editAction()
     {
-    	return new ViewModel();
+    	 $id = (int) $this->params()->fromRoute('id', 0);
+        if (!$id) {
+            return $this->redirect()->toRoute('user_add', array(
+                'action' => 'add'
+            ));
+        }
+        $user = $this->getUserTable()->getUser($id);
+         if(!$this->roleTable){
+    	 	$sm = $this->getServiceLocator();
+    		$this->roleTable = $sm->get('User\Model\RoleTable');
+    	 }
+         $form = new UserForm(array( 'roleTable' => $this->roleTable));
+        $form->bind($user);
+        $form->get('submit')->setAttribute('value', 'Edit');
+
+        $request = $this->getRequest();
+        if ($request->isPost()) {
+            $form->setInputFilter($user->getInputFilter());
+            $form->setData($request->getPost());
+
+            if ($form->isValid()) {
+                $this->getUserTable()->saveUser($form->getData());
+
+                // Redirect to list of albums
+                return $this->redirect()->toRoute('user_index');
+            }
+        }
+
+        return array(
+            'id' => $id,
+            'form' => $form,
+        );
     }
     
     public function delAction()

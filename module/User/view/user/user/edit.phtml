@@ -1,5 +1,5 @@
  <?php
- $form->setAttribute('action', $this->url('user_add', array('action' => 'add')));
+ $form->setAttribute('action', $this->url('user_edit', array('action' => 'edit', 'id' => $this->id)));
  $form->setAttribute('class', 'form-horizontal');
  $form->prepare();
  ?>
@@ -7,7 +7,7 @@
 	<div class="portlet box green">
 			<div class="portlet-title">
 				<div class="caption">
-					<i class="fa fa-reorder"></i>Add New user
+					<i class="fa fa-reorder"></i>Edit user
 				</div>
 				<div class="tools">
 					<a href="javascript:;" class="collapse"></a>
