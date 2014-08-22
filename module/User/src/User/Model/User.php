@@ -16,6 +16,7 @@ class User
     public $role;
     public $key;
     public $secret;
+    public $status;
     protected $inputFilter;
 
     public function exchangeArray($data){
@@ -27,6 +28,7 @@ class User
         $this->role = (!empty($data['role'])) ? $data['role'] : null;
         $this->key = (!empty($data['key'])) ? $data['key'] : null;
         $this->secret = (!empty($data['secret'])) ? $data['secret'] : null;
+        $this->status = (!empty($data['status'])) ? $data['status'] : null;
 
     }
     // Add the following method:
@@ -165,7 +167,7 @@ class User
             ));
             $inputFilter->add(array(
             		'name'     => 'secret',
-            		'required' => true,
+            		'required' => false,
             		'filters'  => array(
             				array('name' => 'StripTags'),
             				array('name' => 'StringTrim'),

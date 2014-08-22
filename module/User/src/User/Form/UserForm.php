@@ -98,6 +98,19 @@ class UserForm extends Form
 				)
 		));
 		$this->add(array(
+				'name' => 'status',
+				'type' => 'Select',
+				'attributes' => array(
+						'class' => 'select_status form-control',
+						'data-placeholder' => 'Choose Status',
+						'tabindex' => '1',
+						'id' => 'status',
+				),
+				'options' => array(
+						'value_options' => $this->getGatewayTable()['statusTable']->fetchSelectOption(),
+				)
+		));
+		$this->add(array(
 				'name' => 'submit',
 				'type' => 'Submit',
 				'attributes' => array(

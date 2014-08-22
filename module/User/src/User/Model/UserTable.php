@@ -39,6 +39,7 @@ class UserTable
 			'role' => $user->role,
 			'key' => $user->key,
 			'secret' => $user->secret,
+			'status' => $user->status,
 		);
 		$id = intval($user->id);
 		if($id == 0){

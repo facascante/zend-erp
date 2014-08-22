@@ -13,6 +13,7 @@ class UserController extends AbstractActionController
 
     protected $userTable = null;
     protected $roleTable = null;
+    protected $statusTable = null;
 
     public function indexAction()
     {
@@ -29,7 +30,7 @@ class UserController extends AbstractActionController
     		$this->roleTable = $sm->get('User\Model\RoleTable');
     	 }
          $form = new UserForm(array( 'roleTable' => $this->roleTable));
-         $form->get('submit')->setValue('Add');
+         $form->get('submit')->setValue('Save');
 
          $request = $this->getRequest();
         
@@ -55,13 +56,17 @@ class UserController extends AbstractActionController
             ));
         }
         $user = $this->getUserTable()->getUser($id);
+        if(!$this->statusTable){
+        	$sm = $this->getServiceLocator();
+        	$this->statusTable = $sm->get('User\Model\StatusTable');
+        }
          if(!$this->roleTable){
     	 	$sm = $this->getServiceLocator();
     		$this->roleTable = $sm->get('User\Model\RoleTable');
     	 }
-         $form = new UserForm(array( 'roleTable' => $this->roleTable));
-        $form->bind($user);
-        $form->get('submit')->setAttribute('value', 'Edit');
+         $form = new UserForm(array( 'statusTable' => $this->statusTable,'roleTable' => $this->roleTable));
+    	         $form->bind($user);
+        $form->get('submit')->setAttribute('value', 'Update');
 
         $request = $this->getRequest();
         if ($request->isPost()) {
@@ -84,7 +89,48 @@ class UserController extends AbstractActionController
     
     public function delAction()
     {
-    	return new ViewModel();
+    	 $id = (int) $this->params()->fromRoute('id', 0);
+        if (!$id) {
+            return $this->redirect()->toRoute('user_del', array(
+                'action' => 'del'
+            ));
+        }
+        $user = $this->getUserTable()->getUser($id);
+         if(!$this->statusTable){
+    	 	$sm = $this->getServiceLocator();
+    		$this->statusTable = $sm->get('User\Model\StatusTable');
+    	 }
+    	 if(!$this->roleTable){
+    	 	$sm = $this->getServiceLocator();
+    	 	$this->roleTable = $sm->get('User\Model\RoleTable');
+    	 }
+         $form = new UserForm(array( 'statusTable' => $this->statusTable,'roleTable' => $this->roleTable));
+        $form->bind($user);
+        $form->get('submit')->setAttribute('value', 'Update');
+        $form->get('fname')->setAttribute('disabled', 'true');
+        $form->get('lname')->setAttribute('disabled', 'true');
+        $form->get('mname')->setAttribute('disabled', 'true');
+        $form->get('email')->setAttribute('disabled', 'true');
+        $form->get('role')->setAttribute('disabled', 'true');
+        $form->get('key')->setAttribute('disabled', 'true');
+
+        $request = $this->getRequest();
+        if ($request->isPost()) {
+            $form->setInputFilter($user->getInputFilter());
+            $form->setData($request->getPost());
+
+            if ($form->isValid()) {
+                $this->getUserTable()->saveUser($form->getData());
+
+                // Redirect to list of albums
+                return $this->redirect()->toRoute('user_index');
+            }
+        }
+
+        return array(
+            'id' => $id,
+            'form' => $form,
+        );
     }
     public function getUserTable()
     {

@@ -5,6 +5,8 @@ use User\Model\User;
 use User\Model\UserTable;
 use User\Model\Role;
 use User\Model\RoleTable;
+use User\Model\Status;
+use User\Model\StatusTable;
 use Zend\Db\ResultSet\ResultSet;
 use Zend\Db\TableGateway\TableGateway;
 
@@ -50,6 +52,17 @@ class Module
     				$resultSetPrototype = new ResultSet();
     				$resultSetPrototype->setArrayObjectPrototype(new Role());
     				return new TableGateway('tblrole',$dbAdapater,null,$resultSetPrototype);
+    			},
+    			'User\Model\StatusTable' => function($sm){
+    				$tableGateway = $sm->get('StatusTableGateway');
+    				$table = new StatusTable($tableGateway);
+    				return $table;
+    			},
+    			'StatusTableGateway' => function ($sm){
+    				$dbAdapater = $sm->get('Zend\Db\Adapter\Adapter');
+    				$resultSetPrototype = new ResultSet();
+    				$resultSetPrototype->setArrayObjectPrototype(new Status());
+    				return new TableGateway('tblerpstatus',$dbAdapater,null,$resultSetPrototype);
     			}
     		),
     	);
