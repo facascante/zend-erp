@@ -15,9 +15,7 @@ class UserTable
 	public function fetchAll(){
 		
         $resultSet = $this->tableGateway->select();
-        return $resultSet;
-       
-        
+        return $resultSet;   
     }
     
 	public function getUser($id){

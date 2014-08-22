@@ -40,7 +40,7 @@ class Module
     				$resultSetPrototype->setArrayObjectPrototype(new User());
     				return new TableGateway('tbluser',$dbAdapater,null,$resultSetPrototype);
     			},
-    			'Role\Model\RoleTable' => function($sm){
+    			'User\Model\RoleTable' => function($sm){
     				$tableGateway = $sm->get('RoleTableGateway');
     				$table = new RoleTable($tableGateway);
     				return $table;

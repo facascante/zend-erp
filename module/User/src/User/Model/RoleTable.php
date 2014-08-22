@@ -1,6 +1,6 @@
 <?php
 
-namespace Role\Model;
+namespace User\Model;
 
 use Zend\Db\TableGateway\TableGateway;
 
@@ -15,10 +15,19 @@ class RoleTable
 	public function fetchAll(){
 		
         $resultSet = $this->tableGateway->select();
-        var_dump($resultSet);
         return $resultSet;
     }
-    
+    public function fetchSelectOption(){
+	
+    	$resultSet = $this->tableGateway->select();
+    	$selectData = array();
+ 
+        foreach ($resultSet as $result) {
+            $selectData[$result->id] = $result->name;
+        }
+        
+        return $selectData;
+    }
 	public function getRole($id){
 		$id = (int) $id;
 		$rowset = $this->tableGateway->select(array('id' => $id));

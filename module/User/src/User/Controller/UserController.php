@@ -4,7 +4,8 @@ namespace User\Controller;
 
 use Zend\Mvc\Controller\AbstractActionController;
 use Zend\View\Model\ViewModel;
-use User\Model\User;         
+use User\Model\User;   
+use User\Model\Role;      
 use User\Form\UserForm;      
 
 class UserController extends AbstractActionController
@@ -22,7 +23,12 @@ class UserController extends AbstractActionController
 
     public function addAction()
     {
-         $form = new UserForm();
+
+    	 if(!$this->roleTable){
+    	 	$sm = $this->getServiceLocator();
+    		$this->roleTable = $sm->get('User\Model\RoleTable');
+    	 }
+         $form = new UserForm(array( 'roleTable' => $this->roleTable));
          $form->get('submit')->setValue('Add');
 
          $request = $this->getRequest();

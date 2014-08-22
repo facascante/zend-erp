@@ -5,11 +5,18 @@ use Zend\Form\Form;
 
 class UserForm extends Form
 {
-	public function __construct($name = null)
+	protected $gatewayTable;
+	
+	public function setGatewayTable($gatewayTable){
+		$this->gatewayTable = $gatewayTable;
+	}
+	public function getGatewayTable(){
+		return $this->gatewayTable;
+	}
+	public function __construct($gateway)
 	{
-		// we want to ignore the name passed
 		parent::__construct('user');
-
+		$this->setGatewayTable($gateway);
 		$this->add(array(
 				'name' => 'id',
 				'type' => 'Hidden',
@@ -60,10 +67,7 @@ class UserForm extends Form
 						'id' => 'role_id',
 				),
 				'options' => array(
-						'value_options' => array(
-							'0' => 'Developer',
-							'1' => 'Administrator'
-						),
+						'value_options' => $this->getGatewayTable()['roleTable']->fetchSelectOption(),
 				)
 		));
 		$this->add(array(
