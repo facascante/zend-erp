@@ -58,13 +58,13 @@ class UserForm extends Form
 				)
 		));
 		$this->add(array(
-				'name' => 'role_id',
+				'name' => 'role',
 				'type' => 'Select',
 				'attributes' => array(
 						'class' => 'select_role form-control',
 						'data-placeholder' => 'Choose a Role',
 						'tabindex' => '1',
-						'id' => 'role_id',
+						'id' => 'role',
 				),
 				'options' => array(
 						'value_options' => $this->getGatewayTable()['roleTable']->fetchSelectOption(),
@@ -86,6 +86,15 @@ class UserForm extends Form
 						'class' => 'form-control',
 						'placeholder' => 'Enter Password',
 						'id' => 'secret',
+				)
+		));
+		$this->add(array(
+				'name' => 'resecret',
+				'type' => 'password',
+				'attributes' => array(
+						'class' => 'form-control',
+						'placeholder' => 'Enter Password',
+						'id' => 'resecret',
 				)
 		));
 		$this->add(array(

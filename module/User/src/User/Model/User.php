@@ -13,7 +13,7 @@ class User
     public $mname;
     public $lname;
     public $email;
-    public $role_id;
+    public $role;
     public $key;
     public $secret;
     protected $inputFilter;
@@ -24,7 +24,7 @@ class User
         $this->mname = (!empty($data['mname'])) ? $data['mname'] : null;
         $this->lname = (!empty($data['lname'])) ? $data['lname'] : null;
         $this->email = (!empty($data['email'])) ? $data['email'] : null;
-        $this->role_id = (!empty($data['role_id'])) ? $data['role_id'] : null;
+        $this->role = (!empty($data['role'])) ? $data['role'] : null;
         $this->key = (!empty($data['key'])) ? $data['key'] : null;
         $this->secret = (!empty($data['secret'])) ? $data['secret'] : null;
 
@@ -126,6 +126,60 @@ class User
                         ),
                     ),
                 ),
+            ));
+            $inputFilter->add(array(
+            		'name'     => 'role',
+            		'required' => true,
+            		'filters'  => array(
+            				array('name' => 'StripTags'),
+            				array('name' => 'StringTrim'),
+            		),
+            		'validators' => array(
+            				array(
+            						'name'    => 'StringLength',
+            						'options' => array(
+            								'encoding' => 'UTF-8',
+            								'min'      => 1,
+            								'max'      => 50,
+            						),
+            				),
+            		),
+            ));
+            $inputFilter->add(array(
+            		'name'     => 'key',
+            		'required' => true,
+            		'filters'  => array(
+            				array('name' => 'StripTags'),
+            				array('name' => 'StringTrim'),
+            		),
+            		'validators' => array(
+            				array(
+            						'name'    => 'StringLength',
+            						'options' => array(
+            								'encoding' => 'UTF-8',
+            								'min'      => 1,
+            								'max'      => 50,
+            						),
+            				),
+            		),
+            ));
+            $inputFilter->add(array(
+            		'name'     => 'secret',
+            		'required' => true,
+            		'filters'  => array(
+            				array('name' => 'StripTags'),
+            				array('name' => 'StringTrim'),
+            		),
+            		'validators' => array(
+            				array(
+            						'name'    => 'StringLength',
+            						'options' => array(
+            								'encoding' => 'UTF-8',
+            								'min'      => 1,
+            								'max'      => 50,
+            						),
+            				),
+            		),
             ));
             $this->inputFilter = $inputFilter;
         }
