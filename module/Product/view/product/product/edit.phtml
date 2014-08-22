@@ -1,5 +1,5 @@
 <?php
-$form->setAttribute('action', $this->url('product_edit', array('action' => 'edit')));
+$form->setAttribute('action', $this->url('product_add', array('action' => 'add', 'id'=> $this->id)));
 $form->setAttribute('class', 'form-horizontal');
 $form->prepare();
 ?>
@@ -8,7 +8,7 @@ $form->prepare();
     <div class="portlet box green">
         <div class="portlet-title">
             <div class="caption">
-                <i class="fa fa-reorder"></i>Add New Product
+                <i class="fa fa-reorder"></i>Edit Product
             </div>
             <div class="tools">
                 <a href="javascript:;" class="collapse">
@@ -24,20 +24,39 @@ $form->prepare();
         <div class="portlet-body form">
             <!-- BEGIN FORM-->
             <?php echo $this->form()->openTag($form); ?>
-
+            <?php echo $this->formHidden($form->get('id')); ?>
             <div class="form-body">
                 <div class="form-group">
-                    <label class="col-md-4 control-label">Code</label>
+                    <label class="col-md-4 control-label">Item Code</label>
                     <div class="col-md-4">
-                        <!--							<input type="text" class="form-control" placeholder="Enter Code">-->
-                        <?php  echo $this->formRow($form->get('code')); ?>
-
+                        <?php  echo $this->formRow($form->get('item_code')); ?>
                     </div>
                 </div>
+
                 <div class="form-group">
-                    <label class="col-md-4 control-label">Name</label>
+                    <label class="col-md-4 control-label">Supplier Code</label>
                     <div class="col-md-4">
-                        <!--							<input type="text" class="form-control" placeholder="Enter Product Name">-->
+                        <?php  echo $this->formRow($form->get('supplier_code')); ?>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="col-md-4 control-label">BL Code</label>
+                    <div class="col-md-4">
+                        <?php  echo $this->formRow($form->get('bl_code')); ?>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="col-md-4 control-label">Print Code</label>
+                    <div class="col-md-4">
+                        <?php  echo $this->formRow($form->get('print_code')); ?>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="col-md-4 control-label">Product Name</label>
+                    <div class="col-md-4">
                         <?php  echo $this->formRow($form->get('name')); ?>
                     </div>
                 </div>
@@ -45,15 +64,21 @@ $form->prepare();
                 <div class="form-group">
                     <label class="col-md-4 control-label">Brand</label>
                     <div class="col-md-4">
-                        <?php  echo $this->formRow($form->get('brand_id')); ?>
+                        <?php  echo $this->formRow($form->get('brand')); ?>
                     </div>
                 </div>
 
                 <div class="form-group">
-                    <label class="col-md-4 control-label">Model</label>
+                    <label class="col-md-4 control-label">Category</label>
                     <div class="col-md-4">
-                        <?php  echo $this->formRow($form->get('model')); ?>
+                        <?php  echo $this->formRow($form->get('category')); ?>
+                    </div>
+                </div>
 
+                <div class="form-group">
+                    <label class="col-md-4 control-label">Sub Category</label>
+                    <div class="col-md-4">
+                        <?php  echo $this->formRow($form->get('subcategory')); ?>
                     </div>
                 </div>
 
@@ -63,6 +88,21 @@ $form->prepare();
                         <?php  echo $this->formRow($form->get('description')); ?>
                     </div>
                 </div>
+
+                <div class="form-group">
+                    <label class="col-md-4 control-label">Unit of Measurement</label>
+                    <div class="col-md-4">
+                        <?php  echo $this->formRow($form->get('uom')); ?>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="col-md-4 control-label">Enter Color</label>
+                    <div class="col-md-4">
+                        <?php  echo $this->formRow($form->get('color')); ?>
+                    </div>
+                </div>
+
                 <div class="form-group">
                     <label class="col-md-4 control-label">Size</label>
                     <div class="col-md-4">
@@ -78,34 +118,40 @@ $form->prepare();
                 </div>
             </div>
 
-
             <div class="form-group">
-                <label class="col-md-4 control-label">Unit of Measurement</label>
+                <label class="col-md-4 control-label">Supplier</label>
                 <div class="col-md-4">
-                    <?php  echo $this->formRow($form->get('uom')); ?>
+                    <?php  echo $this->formRow($form->get('supplier')); ?>
                 </div>
             </div>
 
+            <div class="form-group">
+                <label class="col-md-4 control-label">International Cost</label>
+                <div class="col-md-4">
+                    <?php  echo $this->formRow($form->get('international_cost')); ?>
+                </div>
+            </div>
 
+            <div class="form-group">
+                <label class="col-md-4 control-label">Purchase Cost</label>
+                <div class="col-md-4">
+                    <?php  echo $this->formRow($form->get('purchase_cost')); ?>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-md-4 control-label">Currency</label>
+                <div class="col-md-4">
+                    <?php  echo $this->formRow($form->get('currency')); ?>
+                </div>
+            </div>
 
             <div class="form-group">
                 <label class="col-md-4 control-label">Status</label>
                 <div class="col-md-4">
                     <?php  echo $this->formRow($form->get('status')); ?>
-
                 </div>
             </div>
-
-            <div class="form-group">
-                <label class="col-md-4 control-label">Supplier</label>
-                <div class="col-md-4">
-                    <?php  echo $this->formRow($form->get('supplier_id')); ?>
-
-
-                </div>
-            </div>
-
-
 
             <div class="form-actions fluid">
                 <div class="col-md-offset-3 col-md-9">
@@ -119,3 +165,5 @@ $form->prepare();
         </div>
     </div>
 </div>
+
+
