@@ -131,9 +131,11 @@ CREATE TABLE `tblerpstatus` (
   `name` varchar(100) NOT NULL,
   `category` varchar(100) NOT NULL,
   PRIMARY KEY (`id`,`name`,`category`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
 
 /*Data for the table `tblerpstatus` */
+
+insert  into `tblerpstatus`(`id`,`name`,`category`) values (1,'Active','User'),(2,'Inactive','User'),(3,'Suspend','User'),(4,'Delete','User');
 
 /*Table structure for table `tblproduct` */
 
@@ -252,12 +254,13 @@ CREATE TABLE `tbluser` (
   `role` int(11) NOT NULL,
   `key` varchar(25) NOT NULL,
   `secret` text NOT NULL,
+  `status` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
 
 /*Data for the table `tbluser` */
 
-insert  into `tbluser`(`id`,`fname`,`mname`,`lname`,`email`,`role`,`key`,`secret`) values (1,'Chito','Alzona','Cascante','chito.cascante@gmail.com',1,'chito','chito123'),(2,'ace','baliw','tanga','ace@tanga.com',1,'tanga','12345678'),(3,'aces','baliw','tanga','ace@tanga.com',1,'tanga','12345678'),(4,'ac1212212','baliw','tanga','ace@tanga.com',1,'tanga','12345678');
+insert  into `tbluser`(`id`,`fname`,`mname`,`lname`,`email`,`role`,`key`,`secret`,`status`) values (1,'Chito','Alzona','Cascante','chito.cascante@gmail.com',1,'chito','chito123',NULL),(2,'ace','baliw','tanga','ace@tanga.com',1,'tanga','12345678',NULL),(3,'aces','baliw','tanga','ace@tanga.com',1,'tanga','12345678',NULL),(4,'ac1212212','baliw','tanga','ace@tanga.com',1,'tanga','',2);
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
 /*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
