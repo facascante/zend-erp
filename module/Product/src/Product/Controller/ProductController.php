@@ -6,14 +6,20 @@ use Zend\Mvc\Controller\AbstractActionController;
 use Zend\View\Model\ViewModel;
 use Product\Model\Product;
 use Product\Form\ProductForm;
+//use Product\Model\Brand;
+//use Product\Form\BrandForm;
 
 
 class ProductController extends AbstractActionController
 {
 
-    protected $objectTable = null;
-    protected $userTable = null;
-    protected $roleTable = null;
+    protected $productTable = null;
+    protected $brandTable = null;
+    protected $categoryTable = null;
+    protected $subcategoryTable = null;
+    protected $supplierTable = null;
+    protected $uomTable = null;
+
 
 
     public function indexAction()
@@ -22,17 +28,6 @@ class ProductController extends AbstractActionController
             'products' => $this->getProductTable()->fetchAll()
         ));
     }
-
-
-    public function getProductTable()
-    {
-        if(!$this->objectTable){
-            $sm = $this->getServiceLocator();
-            $this->objectTable = $sm->get('Product\Model\ProductTable');
-        }
-        return $this->objectTable;
-    }
-
 
 
     public function addAction()
@@ -69,25 +64,59 @@ class ProductController extends AbstractActionController
 
 
         $product = $this->getProductTable()->getProduct($id);
-        if(!$this->CategoryTable){
+
+        //controllers for MODELS
+        if(!$this->brandTable){
             $sm = $this->getServiceLocator();
-            $this->roleTable = $sm->get('User\Model\CategoryTable');
+            $this->brandTable = $sm->get('Product\Model\BrandTable');
+        }
+
+        if(!$this->categoryTable){
+            $sm = $this->getServiceLocator();
+            $this->categoryTable = $sm->get('Product\Model\CategoryTable');
+        }
+
+        if(!$this->subcategoryTable){
+            $sm = $this->getServiceLocator();
+            $this->subcategoryTable = $sm->get('Product\Model\SubCategoryTable');
+        }
+
+        if(!$this->uomTable){
+            $sm = $this->getServiceLocator();
+            $this->uomTable = $sm->get('Product\Model\UOMTable');
         }
 
 
+        if(!$this->supplierTable){
+            $sm = $this->getServiceLocator();
+            $this->supplierTable = $sm->get('Product\Model\SupplierTable');
+        }
+
+        //set forms elements
+        $form = new ProductForm(array(
+            'brandTable' => $this->BrandTable,
+            'categoryTable' => $this->CategoryTable,
+            'subcategoryTable' => $this->SubCategoryTable,
+            'uomTable' => $this->UOMTable,
+            'supplierTable' => $this->SupplierTable,
+        ));
+
+        //set to values to edit forms
         $form->bind($product);
         $form->get('submit')->setAttribute('value', 'Edit');
 
+
+        //after editing
         $request = $this->getRequest();
         if ($request->isPost()) {
-            $form->setInputFilter($user->getInputFilter());
+            $form->setInputFilter($product->getInputFilter());
             $form->setData($request->getPost());
 
             if ($form->isValid()) {
-                $this->getProductTable()->saveUser($form->getData());
+                $this->getProductTable()->saveproduct($form->getData());
 
-                // Redirect to list of albums
-                return $this->redirect()->toRoute('user_index');
+        // Redirect to list of products
+                return $this->redirect()->toRoute('product_index');
             }
         }
 
@@ -104,6 +133,15 @@ class ProductController extends AbstractActionController
     public function delAction()
     {
         return new ViewModel();
+    }
+
+    public function getProductTable()
+    {
+        if(!$this->objectTable){
+            $sm = $this->getServiceLocator();
+            $this->objectTable = $sm->get('Product\Model\ProductTable');
+        }
+        return $this->objectTable;
     }
 
 

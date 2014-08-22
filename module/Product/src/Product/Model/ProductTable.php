@@ -26,6 +26,7 @@ class ProductTable
 		if($row){
 			throw new \Exception("Could Not find row $id");
 		}
+        return $row;
 	}
 	public function saveProduct(Product $product)
 	{
