@@ -2,8 +2,7 @@
 SQLyog Trial v12.0 (64 bit)
 MySQL - 5.6.16 : Database - zend_erp
 *********************************************************************
-*/
-
+*/
 
 /*!40101 SET NAMES utf8 */;
 
@@ -95,9 +94,11 @@ CREATE TABLE `tblcustomer` (
   `sales_executive` int(11) DEFAULT NULL,
   `status` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
 
 /*Data for the table `tblcustomer` */
+
+insert  into `tblcustomer`(`id`,`category`,`type`,`name`,`trade_name`,`consignee`,`phone`,`email`,`owner`,`contact_person`,`tin`,`website`,`shipping_mode`,`payment_terms`,`unpaid_invoice`,`credit_limit`,`billing_address_id`,`shipping_address_id`,`sales_executive`,`status`) values (1,1,1,'chito',NULL,0,'',NULL,NULL,NULL,NULL,NULL,0,0,0,0,NULL,NULL,NULL,0);
 
 /*Table structure for table `tblcustomercategory` */
 
@@ -218,6 +219,34 @@ CREATE TABLE `tblrole` (
 
 insert  into `tblrole`(`id`,`name`) values (1,'Developer'),(2,'Administrator'),(3,'Accountant');
 
+/*Table structure for table `tblsales` */
+
+DROP TABLE IF EXISTS `tblsales`;
+
+CREATE TABLE `tblsales` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `sono` varchar(50) DEFAULT NULL,
+  `customer` int(11) NOT NULL,
+  `transtype` int(11) NOT NULL,
+  `shipto` int(11) NOT NULL,
+  `billto` int(11) NOT NULL,
+  `ordersrc` int(11) DEFAULT NULL,
+  `se` int(11) DEFAULT NULL,
+  `sm` varchar(100) DEFAULT NULL,
+  `terms` int(11) DEFAULT NULL,
+  `pono` varchar(100) DEFAULT NULL,
+  `prefdeldate` varchar(100) DEFAULT NULL,
+  `orderedby` varchar(100) DEFAULT NULL,
+  `actdeldate` varchar(100) DEFAULT NULL,
+  `notes` text,
+  `status` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+
+/*Data for the table `tblsales` */
+
+insert  into `tblsales`(`id`,`sono`,`customer`,`transtype`,`shipto`,`billto`,`ordersrc`,`se`,`sm`,`terms`,`pono`,`prefdeldate`,`orderedby`,`actdeldate`,`notes`,`status`) values (1,'1233',1,1,0,0,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL);
+
 /*Table structure for table `tblsupplier` */
 
 DROP TABLE IF EXISTS `tblsupplier`;
@@ -230,12 +259,24 @@ CREATE TABLE `tblsupplier` (
 
 /*Data for the table `tblsupplier` */
 
+/*Table structure for table `tbltransactiontype` */
+
+DROP TABLE IF EXISTS `tbltransactiontype`;
+
+CREATE TABLE `tbltransactiontype` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(200) NOT NULL,
+  PRIMARY KEY (`id`,`name`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+/*Data for the table `tbltransactiontype` */
+
 /*Table structure for table `tbluom` */
 
 DROP TABLE IF EXISTS `tbluom`;
 
 CREATE TABLE `tbluom` (
-  `id` float NOT NULL AUTO_INCREMENT,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(100) NOT NULL,
   PRIMARY KEY (`id`,`name`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
