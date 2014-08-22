@@ -11,30 +11,45 @@ class CustomerController extends AbstractActionController
 {
 
     protected $customerTable = null;
+    protected $categoryTable = null;
+    protected $TypeTable = null;
+    
 
     public function indexAction()
     {
         return new ViewModel(array(
-         'users' => $this->getCustomerTable()->fetchAll()
+         'customers' => $this->getCustomerTable()->fetchAll()
          ));
     }
 
     public function addAction()
     {
 
-         $form = new CustomerForm();
-    	          $form->get('submit')->setValue('Save');
+    	 if(!$this->categoryTable){
+    	 	$sm = $this->getServiceLocator();
+    		$this->categoryTable = $sm->get('Customer\Model\CategoryTable');
+    	 }
+    	 if(!$this->TypeTable){
+    	 	$sm = $this->getServiceLocator();
+    	 	$this->TypeTable = $sm->get('Customer\Model\TypeTable');
+    	 }
+    	  $form = new CustomerForm(array(
+         		'categoryTable' => $this->categoryTable,
+         		'TypeTable' => $this->TypeTable,
+         		
+         ));
+    	$form->get('submit')->setValue('Save');
 
          $request = $this->getRequest();
         
          if ($request->isPost()) {
-             $user = new Customer();
-             $form->setInputFilter($user->getInputFilter());
+             $customer = new Customer();
+             $form->setInputFilter($customer->getInputFilter());
              $form->setData($request->getPost());
            
              if ($form->isValid()) {
-                 $user->exchangeArray($form->getData());
-                 $this->getCustomerTable()->saveCustomer($user);
+                 $customer->exchangeArray($form->getData());
+                 $this->getCustomerTable()->saveCustomer($customer);
                  return $this->redirect()->toRoute('customer_index');
              }
          }

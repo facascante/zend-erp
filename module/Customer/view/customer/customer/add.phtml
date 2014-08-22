@@ -1,10 +1,16 @@
+<?php
+ $form->setAttribute('action', $this->url('user_add', array('action' => 'add')));
+ $form->setAttribute('class', 'form-horizontal');
+ $form->prepare();
+ ?>
+
 <div class="tab-pane active" id="tab_0">
 		<div class="portlet box green">
 			<div class="portlet-title">
 				<div class="caption">
 					<i class="fa fa-reorder"></i>Add New Customer
 				</div>
-				<div class="tools">
+					<div class="tools">
 					<a href="javascript:;" class="collapse"></a>
 					<a href="#portlet-config" data-toggle="modal" class="config"></a>
 					<a href="javascript:;" class="reload"></a>
@@ -17,11 +23,11 @@
 			<form action="#" class="form-horizontal">
 			<?php echo $this->form()->openTag($form); ?>
 				<div class="form-body">
-			<h3 class="form-section">Customer Profile</h3>				
+					<h3 class="form-section">Customer Profile</h3>				
 					<div class="form-group">
 						<label class="col-md-2 control-label">Category</label>
 						<div class="col-md-3">
-								<?php  echo $this->formRow($form->get('category')); ?>
+							<?php  echo $this->formRow($form->get('category')); ?>
 						</div>
 						<label class="col-md-2 control-label">Type</label>
 						<div class="col-md-3">
@@ -32,25 +38,22 @@
 					<div class="form-group">
 						<label class="col-md-2 control-label">Owner Name</label>
 						<div class="col-md-3">
-							<input type="text" class="form-control" placeholder="Enter Owner Name">
+							<?php  echo $this->formRow($form->get('owner')); ?>
 						</div>
 						<label class="col-md-2 control-label">Company Name</label>
 						<div class="col-md-3">
-							<input type="text" class="form-control" placeholder="Enter Company Name">
+							<?php  echo $this->formRow($form->get('name')); ?>
 						</div>
 					</div>
 					
 					<div class="form-group">
 						<label class="col-md-2 control-label">Trade Name</label>
 						<div class="col-md-3">
-							<input type="text" class="form-control" placeholder="Enter Trade Name">
+							<?php  echo $this->formRow($form->get('trade_name')); ?>
 						</div>
 						<label class="col-md-2 control-label">Consignee</label>
 						<div class="col-md-3">
-							<select class="select_consignor form-control" data-placeholder="" tabindex="1">
-								<option value="Yes">No</option>
-								<option value="No">Yes</option>
-							</select>
+							<?php  echo $this->formRow($form->get('consignee')); ?>
 						</div>
 					
 					</div>
@@ -58,11 +61,11 @@
 				
 						<label class="col-md-2 control-label">Phone</label>
 						<div class="col-md-3">
-							<input type="text" class="form-control" placeholder="Enter Phone Number">
+							<?php  echo $this->formRow($form->get('phone')); ?>
 						</div>
 						<label class="col-md-2 control-label">Website</label>
 						<div class="col-md-3">
-							<input type="text" class="form-control" placeholder="Enter Website">
+							<?php  echo $this->formRow($form->get('website')); ?>
 						</div>
 					</div>
 					<div class="form-group">
@@ -72,35 +75,31 @@
 									<span class="input-group-addon">
 										<i class="fa fa-envelope"></i>
 									</span>
-									<input type="text" class="form-control" placeholder="Enter Email Address">
+									<?php  echo $this->formRow($form->get('email')); ?>
 								</div>
 							</div>
 						<label class="col-md-2 control-label">TIN</label>
 						<div class="col-md-3">
-							<input type="text" class="form-control" placeholder="Enter Company TIN">
+							<?php  echo $this->formRow($form->get('tin')); ?>
 						</div>
 					</div>
 					<div class="form-group">
 						<label class="col-md-2 control-label">Unpaid Invoice</label>
 						<div class="col-md-3">
-							<input type="text" class="form-control" placeholder="Enter Unpaid Invoice">
+							<?php  echo $this->formRow($form->get('unpaid_invoice')); ?>
 						</div>
 						<label class="col-md-2 control-label">Allow Credit</label>
 						<div class="col-md-3">
-							<select class="select_role form-control" data-placeholder="------" tabindex="0">
-								<option value="No">No</option>
-								<option value="Yes">Yes</option>
-							</select>
+						<?php  echo $this->formRow($form->get('credit_limit')); ?>
 						</div>
 					</div>
 					
 					<div class="form-group">
 							<label class="col-md-2 control-label">Payment Terms</label>
 						<div class="col-md-3">
-							<select class="select_role form-control" data-placeholder="Select Terms" tabindex="1">
-								<option value="Yes">COD</option>
-								<option value="No">30 Days</option>
-								<option value="No">15 Days</option>
+						<select class="select_role form-control" data-placeholder="Select SE" tabindex="0">
+								<option value="1">Select SE</option>
+								
 							</select>
 						</div>
 						
@@ -170,13 +169,7 @@
 					</div>
 				</div>			
 							<!--/span-->
-				<div class="col-md-offset-1 col-md-5">
-					<div class="form-group">
-						<label>Country</label>
-						<select class="form-control">
-						</select>
-					</div>
-				</div>
+				
 			</div>
 			
 		</div>
@@ -220,15 +213,7 @@
 						<input type="text" class="form-control">
 				</div>
 			</div>
-			<div class="col-md-offset-1 col-md-5">
-				<div class="form-group">
-					
-						<label>Country</label>
-						<select class="form-control">
-						</select>
-					</div>
-				</div>
-			</div>
+			
 			<!--/row-->
 					
 			
