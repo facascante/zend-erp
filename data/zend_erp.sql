@@ -139,6 +139,18 @@ CREATE TABLE `tblerpstatus` (
 
 insert  into `tblerpstatus`(`id`,`name`,`category`) values (1,'Active','User'),(2,'Inactive','User'),(3,'Suspend','User'),(4,'Delete','User');
 
+/*Table structure for table `tblpaymenttems` */
+
+DROP TABLE IF EXISTS `tblpaymenttems`;
+
+CREATE TABLE `tblpaymenttems` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(200) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+/*Data for the table `tblpaymenttems` */
+
 /*Table structure for table `tblproduct` */
 
 DROP TABLE IF EXISTS `tblproduct`;
@@ -294,7 +306,7 @@ CREATE TABLE `tbluser` (
   `lname` varchar(50) NOT NULL,
   `email` varchar(50) NOT NULL,
   `role` int(11) NOT NULL,
-  `key` varchar(25) NOT NULL,
+  `username` varchar(25) NOT NULL,
   `secret` text NOT NULL,
   `status` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`)
@@ -302,7 +314,7 @@ CREATE TABLE `tbluser` (
 
 /*Data for the table `tbluser` */
 
-insert  into `tbluser`(`id`,`fname`,`mname`,`lname`,`email`,`role`,`key`,`secret`,`status`) values (1,'Chito','Alzona','Cascante','chito.cascante@gmail.com',1,'chito','chito123',NULL),(2,'ace','baliw','tanga','ace@tanga.com',1,'tanga','12345678',NULL),(3,'aces','baliw','tanga','ace@tanga.com',1,'tanga','12345678',NULL),(4,'ac1212212','baliw','tanga','ace@tanga.com',1,'tanga','',2);
+insert  into `tbluser`(`id`,`fname`,`mname`,`lname`,`email`,`role`,`username`,`secret`,`status`) values (1,'Chito','Alzona','Cascante','chito.cascante@gmail.com',1,'chito','chito123',NULL),(2,'ace','baliw','tanga','ace@tanga.com',1,'tanga','12345678',NULL),(3,'aces','baliw','tanga','ace@tanga.com',1,'tanga','12345678',NULL),(4,'ac1212212','baliw','tanga','ace@tanga.com',1,'tanga','',2);
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
 /*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;

@@ -71,12 +71,12 @@ class UserForm extends Form
 				)
 		));
 		$this->add(array(
-				'name' => 'key',
+				'name' => 'username',
 				'type' => 'Text',
 				'attributes' => array(
 						'class' => 'form-control',
 						'placeholder' => 'Enter Username',
-						'id' => 'key',
+						'id' => 'username',
 				)
 		));
 		$this->add(array(

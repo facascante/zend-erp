@@ -37,7 +37,7 @@ class UserTable
 			'lname' => $user->lname,
 			'email' => $user->email,
 			'role' => $user->role,
-			'key' => $user->key,
+			'username' => $user->username,
 			'secret' => $user->secret,
 			'status' => $user->status,
 		);
