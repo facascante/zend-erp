@@ -25,12 +25,16 @@ class UserController extends AbstractActionController
     public function addAction()
     {
 
+    	if(!$this->statusTable){
+    		$sm = $this->getServiceLocator();
+    		$this->statusTable = $sm->get('User\Model\StatusTable');
+    	}
     	 if(!$this->roleTable){
     	 	$sm = $this->getServiceLocator();
     		$this->roleTable = $sm->get('User\Model\RoleTable');
     	 }
-         $form = new UserForm(array( 'roleTable' => $this->roleTable));
-         $form->get('submit')->setValue('Save');
+         $form = new UserForm(array( 'statusTable' => $this->statusTable,'roleTable' => $this->roleTable));
+    	          $form->get('submit')->setValue('Save');
 
          $request = $this->getRequest();
         
