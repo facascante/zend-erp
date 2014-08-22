@@ -139,17 +139,17 @@ CREATE TABLE `tblerpstatus` (
 
 insert  into `tblerpstatus`(`id`,`name`,`category`) values (1,'Active','User'),(2,'Inactive','User'),(3,'Suspend','User'),(4,'Delete','User');
 
-/*Table structure for table `tblpaymenttems` */
+/*Table structure for table `tblpaymentterms` */
 
-DROP TABLE IF EXISTS `tblpaymenttems`;
+DROP TABLE IF EXISTS `tblpaymentterms`;
 
-CREATE TABLE `tblpaymenttems` (
+CREATE TABLE `tblpaymentterms` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(200) DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
-/*Data for the table `tblpaymenttems` */
+/*Data for the table `tblpaymentterms` */
 
 /*Table structure for table `tblproduct` */
 
