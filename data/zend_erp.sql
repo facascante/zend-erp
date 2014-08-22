@@ -209,11 +209,11 @@ CREATE TABLE `tblrole` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `name` varchar(100) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
 
 /*Data for the table `tblrole` */
 
-insert  into `tblrole`(`id`,`name`) values (1,'Developer'),(2,'Administrator');
+insert  into `tblrole`(`id`,`name`) values (1,'Developer'),(2,'Administrator'),(3,'Accountant');
 
 /*Table structure for table `tblsupplier` */
 
@@ -249,15 +249,15 @@ CREATE TABLE `tbluser` (
   `mname` varchar(50) NOT NULL,
   `lname` varchar(50) NOT NULL,
   `email` varchar(50) NOT NULL,
-  `role_id` int(11) NOT NULL,
+  `role` int(11) NOT NULL,
   `key` varchar(25) NOT NULL,
   `secret` text NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
 
 /*Data for the table `tbluser` */
 
-insert  into `tbluser`(`id`,`fname`,`mname`,`lname`,`email`,`role_id`,`key`,`secret`) values (1,'Chito','Alzona','Cascante','chito.cascante@gmail.com',1,'chito','chito123');
+insert  into `tbluser`(`id`,`fname`,`mname`,`lname`,`email`,`role`,`key`,`secret`) values (1,'Chito','Alzona','Cascante','chito.cascante@gmail.com',1,'chito','chito123'),(2,'ace','baliw','tanga','ace@tanga.com',1,'tanga','12345678'),(3,'aces','baliw','tanga','ace@tanga.com',1,'tanga','12345678'),(4,'ac1212212','baliw','tanga','ace@tanga.com',1,'tanga','12345678');
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
 /*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
