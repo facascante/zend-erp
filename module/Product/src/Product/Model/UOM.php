@@ -6,18 +6,16 @@ use Zend\InputFilter\InputFilter;
 use Zend\InputFilter\InputFilterAwareInterface;
 use Zend\InputFilter\InputFilterInterface;
 
-class SubCategory
+class UOM
 {
     public $id;
     public $name;
-    public $category;
     protected $inputFilter;
 
 
     public function exchangeArray($data){
         $this->id = (!empty($data['id'])) ? $data['id'] : null;
         $this->name = (!empty($data['name'])) ? $data['name'] : null;
-        $this->category = (!empty($data['category'])) ? $data['category'] : null;
     }
 
     // Add content to these methods:
@@ -33,7 +31,7 @@ class SubCategory
 
             $inputFilter->add(array(
                 'name'     => 'id',
-                'required' => true,
+                'required' => false,
                 'filters'  => array(
                     array('name' => 'Int'),
                 ),
@@ -58,13 +56,6 @@ class SubCategory
                 ),
             ));
 
-            $inputFilter->add(array(
-                'name'     => 'category',
-                'required' => false,
-                'filters'  => array(
-                    array('name' => 'Int'),
-                ),
-            ));
 
 
             $this->inputFilter = $inputFilter;

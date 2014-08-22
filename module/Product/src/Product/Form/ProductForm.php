@@ -5,6 +5,15 @@ use Zend\Form\Form;
 
 class ProductForm extends Form
 {
+    protected $gatewayTable;
+
+    public function setGatewayTable($gatewayTable){
+        $this->gatewayTable = $gatewayTable;
+    }
+    public function getGatewayTable(){
+        return $this->gatewayTable;
+    }
+
     public function __construct($name = null)
     {
         // we want to ignore the name passed
@@ -87,8 +96,7 @@ class ProductForm extends Form
             ),
             'options' => array(
                 'value_options' => array(
-                    '1' => 'Avon',
-                    '2' => 'Ponds'
+                    'value_options' => $this->getGatewayTable()['brandTable']->fetchSelectOption(),
                 ),
             )
         ));
@@ -104,8 +112,8 @@ class ProductForm extends Form
             ),
             'options' => array(
                 'value_options' => array(
-                    '1' => 'category1',
-                    '2' => 'category2'
+                    'value_options' => $this->getGatewayTable()['categoryTable']->fetchSelectOption(),
+
                 ),
             )
         ));
@@ -121,8 +129,7 @@ class ProductForm extends Form
             ),
             'options' => array(
                 'value_options' => array(
-                    '1' => 'subcategory1',
-                    '2' => 'subcategory2'
+                    'value_options' => $this->getGatewayTable()['subcategoryTable']->fetchSelectOption(),
                 ),
             )
         ));
@@ -148,8 +155,7 @@ class ProductForm extends Form
             ),
             'options' => array(
                 'value_options' => array(
-                    '1' => 'ml',
-                    '2' => 'oz'
+                    'value_options' => $this->getGatewayTable()['uomTable']->fetchSelectOption(),
                 ),
             )
         ));
@@ -195,8 +201,7 @@ class ProductForm extends Form
             ),
             'options' => array(
                 'value_options' => array(
-                    '1' => 'Chito Beauty Products',
-                    '2' => 'Chito Salon'
+                    'value_options' => $this->getGatewayTable()['supplierTable']->fetchSelectOption(),
                 ),
             )
         ));
